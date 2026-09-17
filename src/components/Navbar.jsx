@@ -10,7 +10,7 @@ export function Navbar() {
   console.log(showMenu);
 
   return (
-    <div className="sticky flex items-center md:top-15 top-12 border-b-3 border-primary/50 z-100 bg-white py-3">
+    <div className="sticky flex items-center md:top-15 top-12 border-b-3 border-primary/50 z-50 bg-white py-3">
       <GiHamburgerMenu className="block lg:hidden relative mx-5" />
       <div className="flex w-fit mx-auto gap-10 items-center">
         <div className="h-full flex relative group">

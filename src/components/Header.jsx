@@ -4,6 +4,7 @@ import { FaFacebook } from "react-icons/fa6";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { MdDriveEta } from "react-icons/md";
 import { Button } from "./Button";
+import { ImCross } from "react-icons/im";
 
 export function Header() {
   return (
@@ -17,6 +18,14 @@ export function Header() {
 function FirstHeader() {
   return (
     <div className="sticky top-0 flex justify-between items-center w-full z-100 text-white bg-secondary py-2 px-10">
+      <div className="flex flex-col absolute h-screen top-0 left-0 w-80 bg-white text-black z-100 pt-20 px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3">
+        <ImCross className="absolute right-10 top-5" />
+        <a href="#">HOME</a>
+        <a href="#">SHOP</a>
+        <a href="#">ABOUT US</a>
+        <a href="#">BLOGS</a>
+        <a href="#">CONTACT</a>
+      </div>
       <img
         src="https://www.superwheelsautoparts.com/images/super-wheels.jpg"
         alt=""
