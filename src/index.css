@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #ff9000;
+  --color-secondary: #337ab7;
+}
+
+
+@utility move-up {
+  @apply transition-transform duration-300 hover:-translate-y-[3px];
+}
+
+/* @layer utilities {
+  .
+} */
