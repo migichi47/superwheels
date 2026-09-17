@@ -1,3 +1,5 @@
+import { GoDotFill } from "react-icons/go";
+import { Button } from "./components/Button";
 import { Header } from "./components/Header";
 import { Navbar } from "./components/Navbar";
 
@@ -6,65 +8,48 @@ export default function App() {
     <>
       <Header />
       <Navbar />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
-      <Lorem />
+      <FeaturedCategories />
     </>
   );
 }
 
-function Lorem() {
+function FeaturedCategories() {
   return (
-    <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis
-      reprehenderit cupiditate recusandae, optio facilis quidem fugit eaque
-      officia harum eveniet assumenda tempore corporis a quam accusamus nemo et
-      nesciunt alias.
+    <div className="flex flex-col items-center">
+      <h1 className="text-primary">TOP FEATURED COLLECTIONS</h1>
+      <h2 className="font-bold text-3xl flex items-center">
+        <GoDotFill className="text-sm text-primary" />
+        OUR CATEGORIES
+        <GoDotFill className="text-sm text-primary" />
+      </h2>
+      {/* category grid */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <Category />
+        <Category />
+        <Category />
+        <Category />
+        <Category />
+      </div>
+    </div>
+  );
+}
+
+function Category() {
+  return (
+    <div className="bg-gray-200 flex flex-col p-5 gap-2 rounded-sm">
+      <img
+        src="https://admin.superwheelsautoparts.com/files/pngegg%20(11).png"
+        alt=""
+        className="w-80"
+      />
+      <h3 className="font-semibold text-lg">SIDE MIRRORS</h3>
+      <p className="text-gray-500">
+        Premium side mirrors built for durability and clarity, offering
+        excellent visibility and compatibility with various models.
+      </p>
+      <Button className={"bg-black hover:bg-primary cursor-pointer"}>
+        View More
+      </Button>
     </div>
   );
 }

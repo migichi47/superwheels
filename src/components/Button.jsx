@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge";
 
-export function Button({ children, className, variant }) {
+export function Button({ children, className }) {
   return (
     <div
       className={twMerge(
