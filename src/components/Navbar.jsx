@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import { FiFilter } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { categories } from "../categories";
 
 export function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,16 +24,9 @@ export function Navbar() {
           <ul
             className={`absolute text-gray-700 top-9 rounded-b-lg lg:hidden ${showMenu ? "block" : "hidden"} [&>li]:py-1 [&>li]:hover:bg-primary bg-white shadow-lg h-fit w-46 [&>li]:pl-4 [&>li]:border-gray-300 [&>li]:cursor-pointer [&>li]:pr-2 [&>li]:border-b lg:group-hover:block lg:group-hover:opacity-100 transition-all duration-1000`}
           >
-            <li onClick={() => setShowMenu(false)}>Side Mirrors</li>
-            <li onClick={() => setShowMenu(false)}>Doors</li>
-            <li onClick={() => setShowMenu(false)}>Bonnets</li>
-            <li onClick={() => setShowMenu(false)}>Wind Breakers</li>
-            <li onClick={() => setShowMenu(false)}>Nose cuts</li>
-            <li onClick={() => setShowMenu(false)}>Headlights</li>
-            <li onClick={() => setShowMenu(false)}>Fog lights</li>
-            <li onClick={() => setShowMenu(false)}>Bumpers</li>
-            <li onClick={() => setShowMenu(false)}>Tail lights</li>
-            <li className="border-none">Fenders/wing</li>
+            {categories.map((cat) => (
+              <li onClick={() => setShowMenu(false)}>{cat.name}</li>
+            ))}
           </ul>
         </div>
         <div className="text-xs [&>a]:hover:bg-primary hidden lg:flex [&>a]:flex [&>a]:items-center h-10 [&>a]:px-2 [&>a]:rounded-t-lg [&>a]:hover:text-white [&>a]:transition-colors">
