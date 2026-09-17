@@ -1,4 +1,3 @@
-
 export const categories = [
   {
     name: "Side mirrors",
@@ -20,7 +19,8 @@ export const categories = [
   },
   {
     name: "Wind Breakers",
-    image: "https://admin.superwheelsautoparts.com/files/wind-breakers-main.png",
+    image:
+      "https://admin.superwheelsautoparts.com/files/wind-breakers-main.png",
     description:
       "Wind deflectors and wind breakers for improved aerodynamics and reduced wind noise View More",
   },
@@ -44,7 +44,8 @@ export const categories = [
   },
   {
     name: "Bumpers",
-    image: "https://admin.superwheelsautoparts.com/files/front-bumpers-main.png",
+    image:
+      "https://admin.superwheelsautoparts.com/files/front-bumpers-main.png",
     description:
       "Complete front bumper assemblies including grilles and fog light mounts for various vehicles",
   },
@@ -56,7 +57,8 @@ export const categories = [
   },
   {
     name: "Fenders/Wings",
-    image: "https://admin.superwheelsautoparts.com/files/fog-lights-main.png",
+    image:
+      "https://admin.superwheelsautoparts.com/files/fenders-wings-main.png",
     description:
       "Front and rear fenders/wing panels for body repair and restoration projects",
   },
