@@ -7,9 +7,21 @@
 
 
 @utility move-up {
-  @apply transition-transform duration-300 hover:-translate-y-[3px];
+  @apply transition-transform duration-300 hover:-translate-y-0.75;
 }
 
-/* @layer utilities {
-  .
-} */
+@utility slide-from-left {
+  animation: slide-from-left 0.3s ease-out;
+}
+
+@keyframes slide-from-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

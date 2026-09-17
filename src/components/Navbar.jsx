@@ -1,18 +1,23 @@
 import { BiSearch } from "react-icons/bi";
-import { Button } from "./Button";
 import { FiFilter } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CiDark } from "react-icons/ci";
+import { Button } from "./Button";
 import { categories } from "../categories";
+import CreateContext from "../context/ContextProvider";
 
 export function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
-  console.log(showMenu);
+  const { setShowSidebar } = useContext(CreateContext);
 
   return (
-    <div className="sticky flex items-center md:top-15 top-12 border-b-3 border-primary/50 z-50 bg-white py-3">
-      <GiHamburgerMenu className="block lg:hidden relative mx-5" />
-      <div className="flex w-fit mx-auto gap-10 items-center">
+    <nav className="sticky flex items-center md:top-15 top-12 border-b-3 border-primary/50 z-50 bg-white py-3">
+      <GiHamburgerMenu
+        className="block lg:hidden relative sm:mx-5 mx-2"
+        onClick={() => setShowSidebar(true)}
+      />
+      <div className="flex w-fit mx-auto sm:gap-10 gap-2 items-center">
         <div className="h-full flex relative group">
           <div
             className="flex py-2 px-4 rounded-md gap-10 bg-linear-to-b hover:from-primary hover:to-primary/0 transition-colors cursor-pointer from-gray-300 to-gray-100 items-center"
@@ -46,7 +51,8 @@ export function Navbar() {
             <BiSearch />
           </Button>
         </div>
+        <CiDark className="text-2xl" />
       </div>
-    </div>
+    </nav>
   );
 }
