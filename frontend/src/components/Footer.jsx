@@ -26,7 +26,7 @@ export function Footer() {
           <h1>Categories</h1>
           <div className="text-amber-200 [&>p]:hover:text-primary cursor-pointer space-y-3 text-sm">
             {categories.map((cat) => (
-              <p>{cat.name}</p>
+              <p key={cat.name}>{cat.name}</p>
             ))}
           </div>
         </div>
