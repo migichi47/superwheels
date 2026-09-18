@@ -48,7 +48,7 @@ function FirstHeader() {
           </a>
           <a
             onClick={() => {
-              navigate("/");
+              navigate("/about");
               setShowSidebar(false);
             }}
           >
