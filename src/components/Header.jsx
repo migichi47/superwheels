@@ -24,7 +24,7 @@ function FirstHeader() {
   const navigate = useNavigate();
 
   return (
-    <div className="sticky top-0 flex justify-between items-center w-full z-100 text-white bg-primary py-2 px-10">
+    <div className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white bg-primary py-2 px-10">
       {showSidebar && (
         <div className="flex flex-col absolute sm:hidden slide-from-left h-screen top-0 left-0 w-65 bg-white text-black z-100 pt-20 px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3 [&>a]:cursor-pointer">
           <ImCross
@@ -118,15 +118,10 @@ function FirstHeader() {
 
 function SecondHeader() {
   return (
-    <div className="flex flex-col justify-center items-center bg-secondary px-10 py-10 gap-4 w-full text-center">
-      <p className="text-gray-200 text-sm">
-        New and carefully inspected ex-Japan body parts for
-        <span className="font-bold text-[15px] text-gray-800 mx-1">
-          Toyota, Nissan, Mazda, Suzuki, Honda, Mitsubishi,
-        </span>
-        etc.
+    <div className="flex flex-col justify-center items-center bg-primary px-10 py-10 gap-4 w-full text-center">
+      <p className="font-semibold text-white text-2xl">
+        What are you looking for?
       </p>
-      <p>What are you looking for?</p>
       <div className="relative">
         <input
           type="text"
