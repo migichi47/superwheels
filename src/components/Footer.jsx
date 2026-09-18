@@ -16,7 +16,7 @@ export function Footer() {
             <p>Contact Us</p>
             <p>Blogs</p>
             <p>Products</p>
-            <p>Returns and Refunds policy</p>
+            <p>Returns and Refund policy</p>
             <p>Terms and Conditions</p>
             <p>Privacy Notice</p>
           </div>

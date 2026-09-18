@@ -29,7 +29,7 @@ export function ProductsPage() {
         </div>
         <h1 className="font-bold text-3xl">All Products</h1>
       </div>
-      <div className="px-2 columns-4 space-y-2 max-w-350 mx-auto">
+      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
         {allProducts.map((product) => (
           <Product key={product.id} {...product} />
         ))}
@@ -40,12 +40,12 @@ export function ProductsPage() {
 
 function Product({ category, make, model, year, image, price }) {
   return (
-    <div className="flex flex-col items-center w-fit h-fit gap-2 bg-gray-200 rounded-lg break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.8)] transition-all cursor-pointer group">
-      <div className="max-w-80 max-h-80 overflow-hidden rounded-t-lg">
+    <div className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 border border-gray-300 rounded-sm break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group">
+      <div className="max-h-80 w-fit overflow-hidden">
         <img
           src={image}
           alt=""
-          className="group-hover:scale-105 duration-300"
+          className="mx-auto h-full group-hover:scale-105 duration-300"
         />
       </div>
       <div className="flex flex-col items-center space-y-1 py-2">

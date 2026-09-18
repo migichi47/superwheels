@@ -7,7 +7,7 @@ import { Button } from "./Button";
 import { ImCross } from "react-icons/im";
 import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Header() {
   return (
@@ -20,20 +20,56 @@ export function Header() {
 
 function FirstHeader() {
   const { showSidebar, setShowSidebar } = useContext(CreateContext);
+  const navigate = useNavigate();
 
   return (
     <div className="sticky top-0 flex justify-between items-center w-full z-100 text-white bg-secondary py-2 px-10">
       {showSidebar && (
-        <div className="flex flex-col absolute slide-from-left h-screen top-0 left-0 w-80 bg-white text-black z-100 pt-20 px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3">
+        <div className="flex flex-col absolute slide-from-left h-screen top-0 left-0 w-80 bg-white text-black z-100 pt-20 px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3 [&>a]:cursor-pointer">
           <ImCross
             className="absolute right-10 top-5"
             onClick={() => setShowSidebar(false)}
           />
-          <Link to="/">HOME</Link>
-          <Link to="/products">SHOP</Link>
-          <Link to="#">ABOUT US</Link>
-          <Link to="#">BLOGS</Link>
-          <Link to="#">CONTACT</Link>
+          <a
+            onClick={() => {
+              navigate("/");
+              setShowSidebar(false);
+            }}
+          >
+            HOME
+          </a>
+          <a
+            onClick={() => {
+              navigate("/products");
+              setShowSidebar(false);
+            }}
+          >
+            SHOP
+          </a>
+          <a
+            onClick={() => {
+              navigate("/");
+              setShowSidebar(false);
+            }}
+          >
+            ABOUT US
+          </a>
+          <a
+            onClick={() => {
+              navigate("/");
+              setShowSidebar(false);
+            }}
+          >
+            BLOGS
+          </a>
+          <a
+            onClick={() => {
+              navigate("/");
+              setShowSidebar(false);
+            }}
+          >
+            CONTACT
+          </a>
         </div>
       )}
       <img
