@@ -7,6 +7,7 @@ import { Button } from "./Button";
 import { ImCross } from "react-icons/im";
 import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -28,11 +29,11 @@ function FirstHeader() {
             className="absolute right-10 top-5"
             onClick={() => setShowSidebar(false)}
           />
-          <a href="#">HOME</a>
-          <a href="#">SHOP</a>
-          <a href="#">ABOUT US</a>
-          <a href="#">BLOGS</a>
-          <a href="#">CONTACT</a>
+          <Link to="/">HOME</Link>
+          <Link to="/products">SHOP</Link>
+          <Link to="#">ABOUT US</Link>
+          <Link to="#">BLOGS</Link>
+          <Link to="#">CONTACT</Link>
         </div>
       )}
       <img

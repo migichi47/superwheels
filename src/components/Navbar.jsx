@@ -1,14 +1,12 @@
 import { BiSearch } from "react-icons/bi";
-import { FiFilter } from "react-icons/fi";
+
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CiDark } from "react-icons/ci";
 import { Button } from "./Button";
-import { categories } from "../data/categories.js";
 import CreateContext from "../context/ContextProvider";
 
 export function Navbar() {
-  const [showMenu, setShowMenu] = useState(false);
   const { setShowSidebar } = useContext(CreateContext);
 
   return (
@@ -18,27 +16,9 @@ export function Navbar() {
         onClick={() => setShowSidebar(true)}
       />
       <div className="flex w-fit mx-auto sm:gap-10 gap-2 items-center">
-        <div className="h-full flex relative group">
-          <div
-            className="flex py-2 px-4 rounded-md gap-10 bg-linear-to-b hover:from-primary hover:to-primary/0 transition-colors cursor-pointer from-gray-300 to-gray-100 items-center"
-            onClick={() => setShowMenu((prev) => !prev)}
-          >
-            <span className="text-[12px] sm:text-sm">All Categories</span>
-            <FiFilter />
-          </div>
-          <ul
-            className={`absolute text-gray-700 top-9 rounded-b-lg lg:hidden ${showMenu ? "block" : "hidden"} [&>li]:py-1 [&>li]:hover:bg-primary bg-white shadow-lg h-fit w-46 [&>li]:pl-4 [&>li]:border-gray-300 [&>li]:cursor-pointer [&>li]:pr-2 [&>li]:border-b lg:group-hover:block lg:group-hover:opacity-100 transition-all duration-1000`}
-          >
-            {categories.map((cat) => (
-              <li key={cat.name} onClick={() => setShowMenu(false)}>
-                {cat.name}
-              </li>
-            ))}
-          </ul>
-        </div>
         <div className="text-xs [&>a]:hover:bg-primary hidden lg:flex [&>a]:flex [&>a]:items-center h-10 [&>a]:px-2 [&>a]:rounded-t-lg [&>a]:hover:text-white [&>a]:transition-colors">
-          <a href="#">HOME</a>
-          <a href="#">SHOP</a>
+          <a href="/">HOME</a>
+          <a href="/products">SHOP</a>
           <a href="#">ABOUT US</a>
           <a href="#">BLOGS</a>
           <a href="#">CONTACT</a>
