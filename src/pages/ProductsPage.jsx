@@ -40,13 +40,18 @@ export function ProductsPage() {
 
 function Product({ category, make, model, year, image, price }) {
   return (
-    <div className="flex flex-col items-center w-fit h-fit gap-2 bg-gray-200 rounded-lg break-inside-avoid">
-      <div className="max-w-80 max-h-80 overflow-hidden rounded-t-lg m-1">
-        <img src={image} alt="" />
+    <div className="flex flex-col items-center w-fit h-fit gap-2 bg-gray-200 rounded-lg break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.8)] transition-all cursor-pointer group">
+      <div className="max-w-80 max-h-80 overflow-hidden rounded-t-lg">
+        <img
+          src={image}
+          alt=""
+          className="group-hover:scale-105 duration-300"
+        />
       </div>
       <div className="flex flex-col items-center space-y-1 py-2">
         <p className="text-lsm font-semibold text-gray-700">
-          <span className="text-black font-bold">{category}</span> <span>{make}</span> <span>{model}</span>
+          <span className="text-black font-bold">{category}</span>{" "}
+          <span>{make}</span> <span>{model}</span>
         </p>
         <p className="text-[11px] text-gray-500 font-semibold">{year}</p>
         <p className="text-primary text-sm font-semibold">Ksh {price}</p>
