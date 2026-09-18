@@ -38,9 +38,9 @@ export function ProductsPage() {
   );
 }
 
-function Product({ category, make, model, year, image, price }) {
+export function Product({ category, make, model, year, image, price }) {
   return (
-    <div className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 border border-gray-300 rounded-sm break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group">
+    <div className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-gray-200 border border-gray-300 rounded-sm break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group">
       <div className="max-h-80 w-fit overflow-hidden">
         <img
           src={image}

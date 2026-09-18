@@ -1,26 +1,29 @@
 import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
-import { Button } from "../components/Button";
+import { allProducts } from "../data/allProducts";
+import { Product } from "./ProductsPage";
 
 export function LandingPage() {
-  return <div>
-    <FeaturedCategories />
-  </div>;
+  return (
+    <div className="space-y-30 mt-10">
+      <FeaturedCategories />
+      <RecommendedProductsGrid />
+    </div>
+  );
 }
 
 function FeaturedCategories() {
   return (
-    <div className="flex flex-col gap-10 items-center my-10">
+    <div className="flex flex-col gap-10 items-center">
       <div className="text-center space-y-2">
-        <h1 className="text-primary">TOP FEATURED COLLECTIONS</h1>
-        <h2 className="font-bold text-3xl flex items-center">
-          <GoDotFill className="text-sm text-primary" />
+        <h1 className="font-bold text-2xl flex items-center gap-1">
+          <GoDotFill className="text-xs text-primary" />
           OUR CATEGORIES
-          <GoDotFill className="text-sm text-primary" />
-        </h2>
+          <GoDotFill className="text-xs text-primary" />
+        </h1>
       </div>
       {/* category grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mx-5">
+      <div className="grid grid-cols-5 sm:grid-cols-6 gap-5 px-5 max-w-200 mx-auto">
         {categories.map((cat) => (
           <Category {...cat} />
         ))}
@@ -29,21 +32,37 @@ function FeaturedCategories() {
   );
 }
 
-function Category({ name, image, description }) {
+function Category({ name, image }) {
   return (
-    <div className="bg-gray-200 flex flex-col p-5 gap-2 group rounded-lg hover:shadow-[2px_2px_10px_rgba(0,0,0,0.5)] transition-colors">
-      <div className="overflow-hidden">
+    <div className="flex flex-col gap-2 group transition-colors cursor-pointer">
+      <div className="overflow-hidden bg-gray-200 rounded-lg p-2 group-hover:bg-gray-300 transition-colors">
         <img
           src={image}
           alt=""
-          className="w-80 group-hover:scale-110 transition-all duration-400"
+          className="w-80 group-hover:scale-108 transition-all duration-400"
         />
       </div>
-      <h3 className="font-semibold text-lg uppercase">{name}</h3>
-      <p className="text-gray-500 text-sm">{description}</p>
-      <Button className={"bg-black hover:bg-primary cursor-pointer"}>
-        View More
-      </Button>
+      <h3 className="text-sm text-center">{name}</h3>
+    </div>
+  );
+}
+
+function RecommendedProductsGrid() {
+  return (
+    <div className="flex flex-col gap-10 items-center mt-10 bg-gray-100 py-10">
+      <div className="text-center space-y-2">
+        <h1 className="font-bold text-2xl flex items-center gap-1">
+          <GoDotFill className="text-xs text-primary" />
+          RECOMMENDED
+          <GoDotFill className="text-xs text-primary" />
+        </h1>
+      </div>
+      {/* category grid */}
+      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
+        {allProducts.map((cat) => (
+          <Product {...cat} />
+        ))}
+      </div>
     </div>
   );
 }
