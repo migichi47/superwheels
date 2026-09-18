@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useContext, useState } from "react";
 import { CiDark } from "react-icons/ci";
 import { Button } from "./Button";
-import { categories } from "../categories";
+import { categories } from "../data/categories.js";
 import CreateContext from "../context/ContextProvider";
 
 export function Navbar() {
@@ -12,7 +12,7 @@ export function Navbar() {
   const { setShowSidebar } = useContext(CreateContext);
 
   return (
-    <nav className="sticky flex items-center md:top-15 top-12 border-b-3 border-primary/50 z-50 bg-white py-3">
+    <nav className="sticky flex items-center md:top-15 top-12 border-b border-primary/50 z-50 bg-white py-3">
       <GiHamburgerMenu
         className="block lg:hidden relative sm:mx-5 mx-2"
         onClick={() => setShowSidebar(true)}
@@ -30,7 +30,9 @@ export function Navbar() {
             className={`absolute text-gray-700 top-9 rounded-b-lg lg:hidden ${showMenu ? "block" : "hidden"} [&>li]:py-1 [&>li]:hover:bg-primary bg-white shadow-lg h-fit w-46 [&>li]:pl-4 [&>li]:border-gray-300 [&>li]:cursor-pointer [&>li]:pr-2 [&>li]:border-b lg:group-hover:block lg:group-hover:opacity-100 transition-all duration-1000`}
           >
             {categories.map((cat) => (
-              <li onClick={() => setShowMenu(false)}>{cat.name}</li>
+              <li key={cat.name} onClick={() => setShowMenu(false)}>
+                {cat.name}
+              </li>
             ))}
           </ul>
         </div>

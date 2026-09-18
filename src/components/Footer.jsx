@@ -1,35 +1,14 @@
-import { BsClock, BsInstagram, BsTiktok, BsTwitter } from "react-icons/bs";
+import { BsClock, BsInstagram, BsTiktok } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebook, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
-import { categories } from "../categories";
+import { categories } from "../data/categories.js";
+import { Button } from "./Button.jsx";
 
 export function Footer() {
   return (
     <div className="bg-black text-white py-20 px-15 space-y-10">
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 [&>div>h1]:text-lg [&>div>h1]:uppercase [&>div>h1]:font-semibold">
-        <div className="space-y-5">
-          <h1>Contact us</h1>
-          <div className="[&>div>p]:text-amber-200 [&>div]:flex [&>div]:gap-2 [&>div]:items-center space-y-3 text-sm">
-            <div>
-              <CiLocationOn className="text-primary text-xl" />
-              <p>Platinum Square, Hola Road off Baricho road</p>
-            </div>
-            <div>
-              <FaPhone className="text-primary text-lg" />
-              <p>+254725293360</p>
-            </div>
-            <div>
-              <HiOutlineMail className="text-primary text-xl" />
-              <p>info@superwheels.co.ke</p>
-            </div>
-            <div>
-              <BsClock className="text-primary text-xl" />
-              <p>Mon - Sat: 9:00am - 6:00am</p>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-5">
           <h1>Information</h1>
           <div className="text-amber-200 [&>p]:hover:text-primary cursor-pointer space-y-3 text-sm">
@@ -51,6 +30,27 @@ export function Footer() {
             ))}
           </div>
         </div>
+        <div className="space-y-5">
+          <h1>Contact us</h1>
+          <div className="[&>div>p]:text-amber-200 [&>div]:flex [&>div]:gap-2 [&>div]:items-center space-y-3 text-sm">
+            <div>
+              <CiLocationOn className="text-primary text-xl" />
+              <p>Platinum Square, Hola Road off Baricho road</p>
+            </div>
+            <div>
+              <FaPhone className="text-primary text-lg" />
+              <p>+254725293360</p>
+            </div>
+            <div>
+              <HiOutlineMail className="text-primary text-xl" />
+              <p>info@superwheels.co.ke</p>
+            </div>
+            <div>
+              <BsClock className="text-primary text-xl" />
+              <p>Mon - Sat: 9:00am - 6:00am</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div className="space-y-4">
         <h1 className="uppercase text-lg font-semibold">Join us on</h1>
@@ -61,7 +61,7 @@ export function Footer() {
           <BsTiktok className="hover:text-gray-200 transition-colors cursor-pointer" />
         </div>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-3">
         <h1 className="uppercase font-semibold text-[14px]">
           New to Superwheels?
         </h1>
@@ -79,6 +79,20 @@ export function Footer() {
             I agree to Superwheels' Privacy Policy. You can unsubscribe from
             newsletters at any time.
           </p>
+        </div>
+        <div className="flex gap-2 h-10">
+          <input
+            type="text"
+            placeholder="Enter E-mail Address"
+            className="text-gray-600 grow max-w-100 h-full px-5 bg-white rounded-sm appearance-none outline-primary border-0 "
+          />
+          <Button
+            className={
+              "font-light bg-primary/0 border border-white hover:bg-secondary cursor-pointer hover:border-none transition-colors"
+            }
+          >
+            Subscribe
+          </Button>
         </div>
       </div>
     </div>
