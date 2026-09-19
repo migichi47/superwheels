@@ -29,7 +29,7 @@ export function ProductsPage() {
             ))}
           </ul>
         </div>
-        <h1 className="font-bold text-3xl">All Products</h1>
+        <h1 className="font-bold text-3xl dark:text-white">All Products</h1>
       </div>
       <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
         {allProducts.map((product) => (
@@ -50,24 +50,27 @@ export function Product({
   description,
 }) {
   return (
-    <div className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-gray-200 border border-gray-300 rounded-sm break-inside-avoid hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group">
+    <div
+      className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-gray-200
+    dark:bg-gray-600 dark:text-white border border-gray-300 dark:border-gray-700 rounded-sm break-inside-avoid 
+    hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group"
+    >
       <div className="max-h-80 w-fit overflow-hidden">
         <img
           src={image}
-          alt=""
           className="mx-auto h-full group-hover:scale-105 duration-300"
         />
       </div>
       <div className="flex flex-col items-center space-y-1 py-2">
-        <p className="text-lg font-semibold text-gray-800">
+        <p className="text-lg font-semibold text-gray-800 dark:text-white">
           <span className="font-bold">{category}</span> <span>{make}</span>{" "}
           <span>{model}</span>
           <span className="mx-1 font-semibold">{year}</span>
         </p>
-        <p className="px-2 text-xs text-center text-gray-500">
+        <p className="px-2 text-xs text-center text-gray-500 dark:text-gray-300">
           {truncateWords(description, 15)}
         </p>
-        <p className="text-secondary text-lg font-bold">Ksh {price}</p>
+        <p className="text-secondary dark:text-primary text-lg font-bold">Ksh {price}</p>
       </div>
     </div>
   );

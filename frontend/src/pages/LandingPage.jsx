@@ -15,7 +15,7 @@ export function LandingPage() {
 
 function FeaturedCategories() {
   return (
-    <div className="flex flex-col gap-10 items-center">
+    <div className="flex flex-col gap-10 items-center dark:text-white">
       <div className="text-center space-y-2">
         <h1 className="font-bold text-2xl flex items-center gap-1">
           <GoDotFill className="text-xs text-primary" />
@@ -27,6 +27,29 @@ function FeaturedCategories() {
       <div className="grid grid-cols-5 sm:grid-cols-6 gap-5 px-5 max-w-200 mx-auto">
         {categories.map((cat) => (
           <Category key={cat.name} {...cat} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function RecommendedProductsGrid() {
+  const { allProducts } = useContext(CreateContext);
+  const recommendedProducts = allProducts.slice(0, 10);
+
+  return (
+    <div className="flex flex-col gap-10 items-center mt-10 bg-gray-100 dark:bg-gray-800 dark:text-white py-10">
+      <div className="text-center space-y-2">
+        <h1 className="font-bold text-2xl flex items-center gap-1">
+          <GoDotFill className="text-xs text-primary" />
+          RECOMMENDED
+          <GoDotFill className="text-xs text-primary" />
+        </h1>
+      </div>
+      {/* category grid */}
+      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
+        {recommendedProducts.map((product) => (
+          <Product key={product.id} {...product} />
         ))}
       </div>
     </div>
@@ -76,33 +99,10 @@ function Category({ name, image }) {
         <img
           src={image}
           alt=""
-          className="w-80 group-hover:scale-108 transition-all duration-400"
+          className="w-80 group-hover:scale-110 transition-all duration-400"
         />
       </div>
       <h3 className="text-sm text-center">{name}</h3>
-    </div>
-  );
-}
-
-function RecommendedProductsGrid() {
-  const { allProducts } = useContext(CreateContext);
-  const recommendedProducts = allProducts.slice(0, 10);
-
-  return (
-    <div className="flex flex-col gap-10 items-center mt-10 bg-gray-100 py-10">
-      <div className="text-center space-y-2">
-        <h1 className="font-bold text-2xl flex items-center gap-1">
-          <GoDotFill className="text-xs text-primary" />
-          RECOMMENDED
-          <GoDotFill className="text-xs text-primary" />
-        </h1>
-      </div>
-      {/* category grid */}
-      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
-        {recommendedProducts.map((product) => (
-          <Product key={product.id} {...product} />
-        ))}
-      </div>
     </div>
   );
 }

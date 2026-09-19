@@ -4,13 +4,16 @@ import { CiDark } from "react-icons/ci";
 import CreateContext from "../context/ContextProvider";
 import { Button } from "./Button";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineLightMode } from "react-icons/md";
 
 export function Navbar() {
-  const { setShowSidebar } = useContext(CreateContext);
+  const { setShowSidebar, setTheme, theme } = useContext(CreateContext);
   const navigate = useNavigate();
 
+  console.log(theme);
+
   return (
-    <nav className="sticky flex items-center md:top-15 top-15 border-b border-primary/50 z-50 bg-white py-3">
+    <nav className="sticky flex items-center md:top-15 top-15 border-b border-primary/50 z-50 bg-white py-3 dark:bg-dark dark:text-white">
       <GiHamburgerMenu
         className="block sm:hidden text-3xl relative ml-10"
         onClick={() => setShowSidebar(true)}
@@ -23,7 +26,18 @@ export function Navbar() {
           <a href="#">BLOGS</a>
           <a href="#">CONTACT</a>
         </div>
-        <CiDark className="text-3xl text-secondary" />
+        <div
+          onClick={() => {
+            setTheme(theme === "dark" ? "light" : "dark");
+          }}
+          className="cursor-pointer text-secondary dark:text-white"
+        >
+          {theme === "dark" ? (
+            <MdOutlineLightMode className="text-2xl" />
+          ) : (
+            <CiDark className="text-3xl" />
+          )}
+        </div>
         <Button onClick={() => navigate("/products")}>Shop now</Button>
       </div>
     </nav>

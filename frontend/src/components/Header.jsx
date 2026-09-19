@@ -1,9 +1,5 @@
-import { AiOutlineDoubleRight } from "react-icons/ai";
 import { BsTiktok, BsWhatsapp } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
-import { GiTakeMyMoney } from "react-icons/gi";
-import { MdDriveEta } from "react-icons/md";
-import { Button } from "./Button";
 import { ImCross } from "react-icons/im";
 import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
@@ -118,7 +114,7 @@ function FirstHeader() {
 
 function SecondHeader() {
   return (
-    <div className="flex flex-col justify-center items-center bg-primary px-10 py-10 gap-4 w-full text-center">
+    <div className="flex flex-col justify-center items-center bg-primary px-10 py-25 gap-4 w-full text-center">
       <p className="font-semibold text-white text-2xl">
         What are you looking for?
       </p>

@@ -18,3 +18,11 @@ app.get("/", (req, res) => {
 app.get("/products", (req, res) => {
   res.status(200).json(products);
 });
+
+app.get("/products/:category", (req, res) => {
+  const {
+    params: { category },
+  } = req;
+
+  res.send(category);
+});
