@@ -5,6 +5,7 @@ import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
+import { ReactTyped } from "react-typed";
 
 export function Header() {
   return (
@@ -74,6 +75,8 @@ function FirstHeader() {
         alt=""
         className="w-30"
       />
+
+      <BrandsTyped className="hidden sm:flex " />
       <div className="flex gap-2 items-center [&>span]:rounded-sm [&>span]:cursor-pointer [&>span]:hover:bg-secondary">
         <span className="bg-white p-2 move-up">
           <BsWhatsapp className="text-green-500" />
@@ -126,6 +129,23 @@ function SecondHeader() {
         />
         <IoIosSearch className="absolute right-0 top-0 w-10 h-full p-2 text-gray-500" />
       </div>
+      <BrandsTyped className={"flex sm:hidden "} />
+    </div>
+  );
+}
+
+function BrandsTyped({ className }) {
+  return (
+    <div className={`gap-2 items-center ${className}`}>
+      <h1 className="font-semibold">We deal with all</h1>
+      <ReactTyped
+        loop
+        strings={["Toyota", "Nissan", "Mazda", "Suzuki", "Honda", "Mitsubishi"]}
+        typeSpeed={60}
+        backSpeed={30}
+        className="text-secondary font-bold text-xl"
+      />
+      <h1 className="font-semibold">Autoparts</h1>
     </div>
   );
 }
