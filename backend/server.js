@@ -7,10 +7,6 @@ const PORT = 3000;
 
 app.use(cors());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
 app.get("/", (req, res) => {
   res.status(200).json({ msg: "Home" });
 });
@@ -26,3 +22,5 @@ app.get("/products/:category", (req, res) => {
 
   res.send(category);
 });
+
+export default app;
