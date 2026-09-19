@@ -1,8 +1,8 @@
 import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
 import { Product } from "./ProductsPage";
-
-const recommendedProducts = allProducts.slice(0, 10);
+import { useContext } from "react";
+import CreateContext from "../context/ContextProvider";
 
 export function LandingPage() {
   return (
@@ -85,6 +85,9 @@ function Category({ name, image }) {
 }
 
 function RecommendedProductsGrid() {
+  const { allProducts } = useContext(CreateContext);
+  const recommendedProducts = allProducts.slice(0, 10);
+
   return (
     <div className="flex flex-col gap-10 items-center mt-10 bg-gray-100 py-10">
       <div className="text-center space-y-2">

@@ -1,25 +1,12 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useContext, useState } from "react";
 import { FiFilter } from "react-icons/fi";
 import { categories } from "../data/categories";
 import { truncateWords } from "../utils/truncateWords";
-import api from "../axios";
+import CreateContext from "../context/ContextProvider";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
-  const [allProducts, setAllProducts] = useState([]);
-
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await api.get("/products");
-        setAllProducts(response.data);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-    getProducts();
-  }, []);
+  const { allProducts } = useContext(CreateContext);
 
   return (
     <div className="my-10 space-y-5">
