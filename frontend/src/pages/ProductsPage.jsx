@@ -1,11 +1,25 @@
 import { useState } from "react";
-import { allProducts } from "../data/allProducts";
+import { useEffect } from "react";
 import { FiFilter } from "react-icons/fi";
 import { categories } from "../data/categories";
 import { truncateWords } from "../utils/truncateWords";
+import api from "../axios";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
+  const [allProducts, setAllProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      try {
+        const response = await api.get("/products");
+        setAllProducts(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getProducts();
+  }, []);
 
   return (
     <div className="my-10 space-y-5">
@@ -59,8 +73,8 @@ export function Product({
       </div>
       <div className="flex flex-col items-center space-y-1 py-2">
         <p className="text-lg font-semibold text-gray-800">
-          <span className="font-bold">{category}</span>{" "}
-          <span>{make}</span> <span>{model}</span>
+          <span className="font-bold">{category}</span> <span>{make}</span>{" "}
+          <span>{model}</span>
           <span className="mx-1 font-semibold">{year}</span>
         </p>
         <p className="px-2 text-xs text-center text-gray-500">

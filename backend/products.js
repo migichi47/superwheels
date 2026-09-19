@@ -1,4 +1,4 @@
-export const allProducts = [
+const products = [
   {
     id: 1,
     category: "Tailgate",
@@ -120,3 +120,5 @@ export const allProducts = [
       "Chrome bonnet trim suitable for a 2014 Harrier. Adds a clean finishing detail to the front bonnet area and can replace damaged trim.",
   },
 ];
+
+module.exports = { products };

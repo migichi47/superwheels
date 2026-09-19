@@ -1,6 +1,5 @@
 import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
-import { allProducts } from "../data/allProducts";
 import { Product } from "./ProductsPage";
 
 const recommendedProducts = allProducts.slice(0, 10);
