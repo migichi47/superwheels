@@ -1,7 +1,7 @@
-const express = require("express");
-const { products } = require("./products");
+import express from "express";
+import products from "./products.js";
+import cors from "cors";
 const app = express();
-const cors = require("cors");
 
 const PORT = 3000;
 
