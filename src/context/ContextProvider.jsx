@@ -29,7 +29,7 @@ export function ContextProvider({ children }) {
   useEffect(() => {
     async function getProducts() {
       try {
-        const response = await api.get("/api/products");
+        const response = await api.get("/api/products");    
         setAllProducts(response.data);
       } catch (err) {
         console.error(err);
