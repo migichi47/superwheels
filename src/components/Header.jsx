@@ -76,7 +76,7 @@ function FirstHeader() {
         className="w-30"
       />
 
-      <BrandsTyped className="hidden sm:flex " />
+      <BrandsTyped className="hidden sm:flex" />
       <div className="flex gap-2 items-center [&>span]:rounded-sm [&>span]:cursor-pointer [&>span]:hover:bg-secondary">
         <span className="bg-white p-2 move-up">
           <BsWhatsapp className="text-green-500" />
@@ -117,8 +117,8 @@ function FirstHeader() {
 
 function SecondHeader() {
   return (
-    <div className="flex flex-col justify-center items-center bg-primary px-10 py-25 gap-4 w-full text-center">
-      <p className="font-semibold text-white text-2xl">
+    <div className="flex flex-col justify-center items-center bg-primary dark:bg-black px-10 py-25 gap-4 w-full text-center">
+      <p className="font-semibold text-white text-2xl dark:text-gray-300">
         What are you looking for?
       </p>
       <div className="relative">
@@ -129,7 +129,7 @@ function SecondHeader() {
         />
         <IoIosSearch className="absolute right-0 top-0 w-10 h-full p-2 text-gray-500" />
       </div>
-      <BrandsTyped className={"flex sm:hidden "} />
+      <BrandsTyped className={"flex sm:hidden"} />
     </div>
   );
 }
@@ -137,15 +137,24 @@ function SecondHeader() {
 function BrandsTyped({ className }) {
   return (
     <div className={`gap-2 items-center ${className}`}>
-      <h1 className="font-semibold">We deal with all</h1>
-      <ReactTyped
-        loop
-        strings={["Toyota", "Nissan", "Mazda", "Suzuki", "Honda", "Mitsubishi"]}
-        typeSpeed={60}
-        backSpeed={30}
-        className="text-secondary font-bold text-xl"
-      />
-      <h1 className="font-semibold">Autoparts</h1>
+      <h1 className="sm:font-semibold font-normal dark:text-gray-300 sm:dark:text-white">
+        We deal with all
+        <ReactTyped
+          loop
+          strings={[
+            "Toyota",
+            "Nissan",
+            "Mazda",
+            "Suzuki",
+            "Honda",
+            "Mitsubishi",
+          ]}
+          typeSpeed={60}
+          backSpeed={30}
+          className="text-secondary font-bold text-xl mx-2"
+        />
+        Autoparts
+      </h1>
     </div>
   );
 }
