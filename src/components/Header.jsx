@@ -137,7 +137,7 @@ function SecondHeader() {
 function BrandsTyped({ className }) {
   return (
     <div className={`gap-2 items-center ${className}`}>
-      <h1 className="sm:font-semibold font-normal dark:text-gray-300 sm:dark:text-white">
+      <h1 className="sm:font-semibold text-sm font-normal dark:text-gray-300 text-gray-100">
         We deal with all
         <ReactTyped
           loop

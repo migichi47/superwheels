@@ -1,3 +1,4 @@
+import { addComma } from "../utils/addComma";
 import { truncateWords } from "../utils/truncateWords";
 
 export function Product({
@@ -31,7 +32,7 @@ export function Product({
           {truncateWords(description, 15)}
         </p>
         <p className="text-secondary dark:text-primary/80 text-lg font-bold">
-          Ksh {price}
+          Ksh {addComma(price)}
         </p>
       </div>
     </div>
