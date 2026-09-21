@@ -10,8 +10,6 @@ export function Navbar() {
   const { setShowSidebar, setTheme, theme } = useContext(CreateContext);
   const navigate = useNavigate();
 
-  console.log(theme);
-
   return (
     <nav className="sticky flex items-center md:top-15 top-15 border-b border-primary/50 z-50 bg-white py-3 dark:bg-dark dark:text-white">
       <GiHamburgerMenu

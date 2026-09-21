@@ -6,7 +6,8 @@ import { Product } from "../components/Product";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
-  const { allProducts } = useContext(CreateContext);
+  const { allProducts, filteredCategory } = useContext(CreateContext);
+  
 
   return (
     <div className="my-10 space-y-5">
@@ -29,7 +30,9 @@ export function ProductsPage() {
             ))}
           </ul>
         </div>
-        <h1 className="font-bold text-3xl dark:text-white">All Products</h1>
+        <h1 className="font-bold text-3xl dark:text-white">
+          {filteredCategory ? filteredCategory : "All Products"}
+        </h1>
       </div>
       <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
         {allProducts.map((product) => (

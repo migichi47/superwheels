@@ -121,13 +121,13 @@ function SecondHeader() {
       <p className="font-semibold text-white text-2xl dark:text-gray-300">
         What are you looking for?
       </p>
-      <div className="relative">
+      <div className="flex sm:w-150">
         <input
           type="text"
           placeholder="I am looking for..."
-          className="bg-white px-3 py-2 rounded-lg"
+          className="bg-white px-3 py-2 rounded-l-lg flex grow max-w-150 mx-auto outline-0"
         />
-        <IoIosSearch className="absolute right-0 top-0 w-10 h-full p-2 text-gray-500" />
+        <IoIosSearch className="h-full text-5xl p-2 text-primary bg-secondary rounded-r-l cursor-pointer hover:bg-secondary/80" />
       </div>
       <BrandsTyped className={"flex sm:hidden"} />
     </div>
