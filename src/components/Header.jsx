@@ -23,7 +23,10 @@ function FirstHeader() {
   return (
     <div className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white bg-primary py-2 px-10">
       {showSidebar && (
-        <div className="flex flex-col absolute sm:hidden slide-from-left h-screen top-0 left-0 w-65 bg-white text-black z-100 pt-20 px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3 [&>a]:cursor-pointer">
+        <div
+          className="flex flex-col absolute sm:hidden slide-from-left h-screen top-0 left-0 w-65 bg-white text-black z-100 pt-20 
+        px-5 [&>a]:border-t [&>a]:border-gray-300 [&>a]:flex [&>a]:py-3 [&>a]:cursor-pointer"
+        >
           <ImCross
             className="absolute right-10 top-5"
             onClick={() => setShowSidebar(false)}
@@ -127,7 +130,7 @@ function SecondHeader() {
           placeholder="I am looking for..."
           className="bg-white px-3 py-2 rounded-l-lg flex grow max-w-150 mx-auto outline-0"
         />
-        <IoIosSearch className="h-full text-5xl p-2 text-primary bg-secondary rounded-r-l cursor-pointer hover:bg-secondary/80" />
+        <IoIosSearch className="h-full text-5xl p-2 text-primary bg-secondary rounded-r-lg cursor-pointer hover:bg-dark transition-colors" />
       </div>
       <BrandsTyped className={"flex sm:hidden"} />
     </div>

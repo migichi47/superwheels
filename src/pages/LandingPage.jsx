@@ -1,9 +1,9 @@
 import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
-import { useContext } from "react";
-import CreateContext from "../context/ContextProvider";
+import { useEffect, useState } from "react";
 import { Product } from "../components/Product";
 import { Category } from "../components/Category";
+import api from "../axios";
 
 export function LandingPage() {
   return (
@@ -35,8 +35,16 @@ function FeaturedCategories() {
 }
 
 function RecommendedProductsGrid() {
-  const { allProducts } = useContext(CreateContext);
-  const recommendedProducts = allProducts.slice(0, 10);
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
+  console.log(recommendedProducts);
+
+  useEffect(() => {
+    const getRecommendedProducts = async () => {
+      const response = await api.get("/api/products/recommended");
+      setRecommendedProducts(response.data);
+    };
+    getRecommendedProducts()
+  }, []);
 
   return (
     <div className="flex flex-col gap-10 items-center mt-10 bg-gray-100 dark:bg-gray-800 dark:text-white py-10">
@@ -56,5 +64,3 @@ function RecommendedProductsGrid() {
     </div>
   );
 }
-
-
