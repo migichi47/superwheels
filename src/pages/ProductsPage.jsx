@@ -3,6 +3,7 @@ import { FiFilter } from "react-icons/fi";
 import { categories } from "../data/categories";
 import CreateContext from "../context/ContextProvider";
 import { Product } from "../components/Product";
+import { ProductsGrid } from "../components/ProductsGrid";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
@@ -34,11 +35,8 @@ export function ProductsPage() {
           {filteredCategory ? filteredCategory : "All Products"}
         </h1>
       </div>
-      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
-        {allProducts.map((product) => (
-          <Product key={product.id} {...product} />
-        ))}
-      </div>
+      {/* products grid */}
+      <ProductsGrid products={allProducts} />
     </div>
   );
 }

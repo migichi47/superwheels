@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { Product } from "../components/Product";
 import { Category } from "../components/Category";
 import api from "../axios";
+import products from "../../data/products";
+import { ProductsGrid } from "../components/ProductsGrid";
 
 export function LandingPage() {
   return (
@@ -39,11 +41,13 @@ function RecommendedProductsGrid() {
   console.log(recommendedProducts);
 
   useEffect(() => {
-    const getRecommendedProducts = async () => {
-      const response = await api.get("/api/products/recommended");
-      setRecommendedProducts(response.data);
-    };
-    getRecommendedProducts()
+    // const getRecommendedProducts = async () => {
+    //   const response = await api.get("/api/products/recommended");
+    //   setRecommendedProducts(response.data);
+    // };
+    // getRecommendedProducts()
+
+    setRecommendedProducts(products);
   }, []);
 
   return (
@@ -56,11 +60,7 @@ function RecommendedProductsGrid() {
         </h1>
       </div>
       {/* category grid */}
-      <div className="px-2 columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-7 w-fit max-w-350 mx-auto">
-        {recommendedProducts.map((product) => (
-          <Product key={product.id} {...product} />
-        ))}
-      </div>
+      <ProductsGrid products={recommendedProducts} />
     </div>
   );
 }
