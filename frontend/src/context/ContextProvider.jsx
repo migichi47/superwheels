@@ -8,7 +8,7 @@ export function ContextProvider({ children }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [theme, setTheme] = useState("light");
-  const [setFilteredCategory] = useState("");
+  const [filteredCategory, setFilteredCategory] = useState("");
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -26,6 +26,9 @@ export function ContextProvider({ children }) {
     }
     getProducts();
   }, []);
+
+  console.log(filteredCategory);
+  
 
   return (
     <CreateContext.Provider

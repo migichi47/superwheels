@@ -34,7 +34,6 @@ app.get("/api/products/all", async (req, res) => {
   }
 });
 
-
 app.get("/api/products/recommended", async (req, res) => {
   try {
     const products = await Product.find().limit(10);
@@ -55,3 +54,12 @@ app.get("/api/products/:id", async (req, res) => {
   res.status(200).json(foundProduct);
 });
 
+app.get("/api/products", async (req, res) => {
+  try {
+    const { category } = req.query;
+    const products = await Product.find({ category: category.split(" ").join("").toLowerCase() });
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json({ msg: "Error in getting query products" });
+  }
+});
