@@ -35,7 +35,7 @@ export function Product({
           <span className="mx-1 font-semibold">{year}</span>
         </p>
         <p className="text-[11px] text-center text-gray-500 dark:text-gray-600">
-          {truncateWords(description, 15)}
+          {truncateWords(description, 8)}
         </p>
         <p className="text-secondary dark:text-primary/80 text-lg font-bold">
           Ksh {addComma(price)}

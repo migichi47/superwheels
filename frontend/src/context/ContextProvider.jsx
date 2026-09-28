@@ -45,6 +45,7 @@ export function ContextProvider({ children }) {
         displayedProducts,
         setTheme,
         theme,
+        filteredCategory,
         setFilteredCategory,
       }}
     >
