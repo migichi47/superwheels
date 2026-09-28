@@ -2,7 +2,7 @@ import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 
-export function Category({ name, image }) {
+export function Category({ name, query, image }) {
   const { setFilteredCategory } = useContext(CreateContext);
   const navigate = useNavigate();
 
@@ -10,14 +10,13 @@ export function Category({ name, image }) {
     <div
       className="flex flex-col gap-2 group transition-colors cursor-pointer"
       onClick={() => {
-        setFilteredCategory(name);
+        setFilteredCategory(query);
         navigate("/products");
       }}
     >
       <div className="overflow-hidden bg-gray-200 dark:bg-gray-300 rounded-lg p-2 group-hover:bg-gray-300 transition-colors">
         <img
           src={image}
-          alt=""
           className="w-80 group-hover:scale-115 transition-all duration-400"
         />
       </div>

@@ -7,7 +7,7 @@ import { ProductsGrid } from "../components/ProductsGrid";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
-  const { allProducts, filteredCategory } = useContext(CreateContext);
+  const { displayedProducts, filteredCategory } = useContext(CreateContext);
   
 
   return (
@@ -36,7 +36,7 @@ export function ProductsPage() {
         </h1>
       </div>
       {/* products grid */}
-      <ProductsGrid products={allProducts} />
+      <ProductsGrid products={displayedProducts} />
     </div>
   );
 }

@@ -6,7 +6,7 @@ const CreateContext = createContext();
 
 export function ContextProvider({ children }) {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [allProducts, setAllProducts] = useState([]);
+  const [displayedProducts, setDisplayedProducts] = useState([]);
   const [theme, setTheme] = useState("light");
   const [filteredCategory, setFilteredCategory] = useState("");
 
@@ -19,7 +19,7 @@ export function ContextProvider({ children }) {
     async function getProducts() {
       try {
         const response = await api.get("/api/products/all");
-        setAllProducts(response.data);
+        setDisplayedProducts(response.data);
       } catch (err) {
         console.error(err);
       }
@@ -27,15 +27,22 @@ export function ContextProvider({ children }) {
     getProducts();
   }, []);
 
-  console.log(filteredCategory);
-  
+  useEffect(() => {
+    async function getFilteredCategory() {
+      const response = await api.get(
+        `/api/products?category=${filteredCategory}`,
+      );
+      if (response.data.length) setDisplayedProducts(response.data);
+    }
+    getFilteredCategory();
+  }, [filteredCategory]);
 
   return (
     <CreateContext.Provider
       value={{
         showSidebar,
         setShowSidebar,
-        allProducts,
+        displayedProducts,
         setTheme,
         theme,
         setFilteredCategory,
