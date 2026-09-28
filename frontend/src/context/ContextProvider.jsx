@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
-import api from "../axios";
 import { getInitialTheme } from "../utils/getInitialTheme";
 import products from "../../data/products";
 

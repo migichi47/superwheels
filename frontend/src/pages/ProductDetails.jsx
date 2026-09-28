@@ -3,8 +3,8 @@ import { Button } from "../components/Button";
 
 export function ProductDetails() {
   return (
-    <div className="flex gap-10 p-10 min-h-150">
-      <div className="max-w-80 overflow-hidden rounded-2xl p-5 border border-gray-300 h-fit">
+    <div className="flex gap-10 p-10 min-h-150 flex-col md:flex-row items-center">
+      <div className="md:max-w-80 max-w-120 overflow-hidden rounded-2xl p-5 border border-gray-300 h-fit">
         <img
           src="https://pictures-kenya.jijistatic.com/63186269_MTUwMC0xMTI1LTA1NTE2MjIxNzg.webp"
           alt=""

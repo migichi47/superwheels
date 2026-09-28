@@ -1,9 +1,7 @@
 import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
 import { useEffect, useState } from "react";
-import { Product } from "../components/Product";
 import { Category } from "../components/Category";
-import api from "../axios";
 import products from "../../data/products";
 import { ProductsGrid } from "../components/ProductsGrid";
 
