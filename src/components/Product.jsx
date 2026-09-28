@@ -14,8 +14,8 @@ export function Product({
 }) {
   return (
     <div
-      className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-white
-    dark:bg-dark dark:text-white border border-gray-300 dark:border-1.5 dark:border-gray-600 rounded-2xl break-inside-avoid 
+      className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-white dark:bg-dark dark:text-white border
+  border-gray-300 dark:border-1.5 dark:border-gray-600 rounded-2xl break-inside-avoid
     hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group"
     >
       <div className="max-h-80 w-full overflow-hidden rounded-t-2xl">
@@ -36,9 +36,7 @@ export function Product({
         <p className="text-secondary dark:text-primary/80 text-lg font-bold">
           Ksh {addComma(price)}
         </p>
-        <Button
-          className="w-full space-x-2 flex justify-center text-xs"
-        >
+        <Button className="w-full space-x-2 flex justify-center text-xsm```">
           <FaWhatsapp /> <span>Order on Whatsapp</span>
         </Button>
       </div>
