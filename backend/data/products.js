@@ -8,9 +8,9 @@ export const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76573071_MTIwMC0xNjAwLTIwZWYyYjFhMDc.webp",
     price: "100000",
-    instock: true,
+    instock: false,
     description:
-      "A used tailgate for a 2014 Honda Vezel. Suitable as a replacement for a damaged or worn-out rear hatch.",
+      "A used tailgate for a 2014 Honda Vezel. Suitable as a replacement for a damaged or worn-out rear hatfdbrthrthhgveklrfgklerferyhfvblieurlfyiveliryfvilevyehlfguyrilefglerlfierflverlfch. loremhadvclhyvleuyhrfvleqvlfuyvqel;irgfi;lvciugeqlirufvbeqvrfuilqreyflquievyhfuqelriyfgvlieqyr",
   },
   {
     id: 2,
