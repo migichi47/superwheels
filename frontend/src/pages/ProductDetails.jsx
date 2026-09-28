@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import api from "../axios";
 import { addComma } from "../utils/addComma";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { orderOnWhatsApp } from "../utils/whatsappUrl.js";
 
 export function ProductDetails() {
   const { id } = useParams();
@@ -19,7 +20,6 @@ export function ProductDetails() {
     getProduct();
   }, [id]);
 
-  console.log(product);
   const { category, make, model, year, description, instock, price, image } =
     product;
 
@@ -46,14 +46,17 @@ export function ProductDetails() {
             </span>
           )}
         </div>
-
         <div className="space-y-3 max-w-250">
           <div>
-            <Button className="w-full flex justify-center gap-2 bg-secondary hover:bg-secondary/50 max-w-100">
+            <Button
+              className="w-full flex justify-center gap-2 bg-secondary hover:bg-secondary/50 max-w-100"
+              onClick={() =>
+                orderOnWhatsApp(category, make, model, year, price)
+              }
+            >
               <BsWhatsapp /> Buy on Whatsapp
             </Button>
           </div>
-
           <div className="space-y-4">
             <p className="text-sm space-x-2">
               <span className="text-gray-500">Category:</span>
