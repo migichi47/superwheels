@@ -1,4 +1,4 @@
-const products = [
+export const products = [
   {
     id: 1,
     category: "Tailgate",
@@ -8,6 +8,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76573071_MTIwMC0xNjAwLTIwZWYyYjFhMDc.webp",
     price: "100000",
+    instock: true,
     description:
       "A used tailgate for a 2014 Honda Vezel. Suitable as a replacement for a damaged or worn-out rear hatch.",
   },
@@ -20,6 +21,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/75931630_MzAwLTIwOC1jMDJhYmFhYzhk.webp",
     price: "25000",
+    instock: true,
     description:
       "Replacement bonnet for a 2015 Toyota Harrier. A practical option for replacing a damaged front hood.",
   },
@@ -32,6 +34,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/66594896_MTUwMC02OTItMWVlYWZlMjM5OA.webp",
     price: "16000",
+    instock: true,
     description:
       "Replacement side mirror for a 2018 Toyota Spade. Ideal for replacing a broken or missing original mirror.",
   },
@@ -44,6 +47,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/66594896_MTUwMC02OTItMWVlYWZlMjM5OA.webp",
     price: "25000",
+    instock: true,
     description:
       "Used side mirror suitable for a 2010 Mazda Axela. A replacement option for damaged or faulty side mirrors.",
   },
@@ -56,6 +60,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76570335_NzM3LTE2MDAtOWVhY2ExNmQyOA.webp",
     price: "28000",
+    instock: true,
     description:
       "Replacement side mirror for a Honda Vezel. Designed to restore visibility and replace a damaged original mirror.",
   },
@@ -68,6 +73,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/64543663_MTUwMC02OTItZmM2ZWFiZmNmZg.webp",
     price: "9000",
+    instock: true,
     description:
       "Front grille replacement for a 2020 Toyota Ist. Suitable for refreshing the front appearance or replacing a damaged grille.",
   },
@@ -80,6 +86,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/75661634_MTYwMC0xMjAwLThjZTU2YzNiYzk.webp",
     price: "25000",
+    instock: true,
     description:
       "Replacement side mirror for a 2010 Mazda Atenza. Suitable for replacing a cracked, broken, or missing mirror.",
   },
@@ -92,6 +99,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/66638130_MTUwMC02OTItNzAzMzQ4ZTU2Nw.webp",
     price: "16000",
+    instock: true,
     description:
       "Used side mirror for a 2014 Toyota Avensis. A suitable replacement for a damaged or non-functional side mirror.",
   },
@@ -104,6 +112,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76569666_MzAwLTY1MS0wN2Q4NmUxNzg3.webp",
     price: "100000",
+    instock: true,
     description:
       "Replacement door panel for a 2011 Toyota Mark X. Suitable for repairs following body damage or replacement of a worn door.",
   },
@@ -116,6 +125,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76573071_MTIwMC0xNjAwLTIwZWYyYjFhMDc.webp",
     price: "26000",
+    instock: true,
     description:
       "Chrome bonnet trim suitable for a 2014 Harrier. Adds a clean finishing detail to the front bonnet area and can replace damaged trim.",
   },
@@ -128,6 +138,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/63186269_MTUwMC0xMTI1LTA1NTE2MjIxNzg.webp",
     price: 28000,
+    instock: true,
     description: "Front headlight assembly for Mazda Atenza 2016 model.",
   },
   {
@@ -139,6 +150,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76573277_MTYwMC03MzktNmEyZWIyZmVlNg.webp",
     price: 22000,
+    instock: true,
     description: "Front bumper replacement for Toyota Fielder 2017 model.",
   },
   {
@@ -150,6 +162,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/75681784_OTgxLTE2MDAtNDdjODBhYmE5Mg.webp",
     price: 8500,
+    instock: true,
     description: "Set of side window windbreakers for Subaru Forester 2015.",
   },
   {
@@ -161,6 +174,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/63227835_MTQ3Mi0xMDk5LTMyNTQwZTI3Y2M.webp",
     price: 9500,
+    instock: true,
     description: "Front fog light assembly for Nissan X-Trail 2016 model.",
   },
   {
@@ -172,6 +186,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/76573071_MTIwMC0xNjAwLTIwZWYyYjFhMDc.webp",
     price: 45000,
+    instock: true,
     description: "Replacement rear tailgate for Toyota Axio 2018 model.",
   },
   {
@@ -183,6 +198,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/64543663_MTUwMC02OTItZmM2ZWFiZmNmZg.webp",
     price: 18000,
+    instock: true,
     description: "Front radiator grille replacement for Mazda CX-5 2017 model.",
   },
   {
@@ -194,6 +210,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/63288192_Njc1LTE1MDAtZWRiMWU1NDJmZA.webp",
     price: 16000,
+    instock: true,
     description: "Front fender replacement for Honda Fit 2016 model.",
   },
   {
@@ -205,6 +222,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/62787551_MTUwMC0xMTI1LTNiM2I4NzMyNTQ.webp",
     price: 14000,
+    instock: true,
     description: "Rear tail light assembly for Toyota Premio 2015 model.",
   },
   {
@@ -216,6 +234,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/67883873_MzAwLTEzOS04NTc1MmM0MmY2.webp",
     price: 20000,
+    instock: true,
     description: "Replacement front door panel for Nissan Note 2016 model.",
   },
   {
@@ -227,8 +246,7 @@ const products = [
     image:
       "https://pictures-kenya.jijistatic.com/63186269_MTUwMC0xMTI1LTA1NTE2MjIxNzg.webp",
     price: 30000,
+    instock: true,
     description: "Front headlight assembly for Subaru Impreza 2017 model.",
   },
 ];
-
-export default products;

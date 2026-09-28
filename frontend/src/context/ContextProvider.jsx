@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { getInitialTheme } from "../utils/getInitialTheme";
-import products from "../../data/products";
+import api from "../axios";
 
 const CreateContext = createContext();
 
@@ -17,17 +17,15 @@ export function ContextProvider({ children }) {
   }, [theme]);
 
   useEffect(() => {
-    // async function getProducts() {
-    //   try {
-    //     const response = await api.get("/api/products/all");
-    //     setAllProducts(response.data);
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // }
-    // getProducts();
-
-    setAllProducts(products);
+    async function getProducts() {
+      try {
+        const response = await api.get("/api/products/all");
+        setAllProducts(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getProducts();
   }, []);
 
   return (

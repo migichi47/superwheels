@@ -2,8 +2,8 @@ import { GoDotFill } from "react-icons/go";
 import { categories } from "../data/categories";
 import { useEffect, useState } from "react";
 import { Category } from "../components/Category";
-import products from "../../data/products";
 import { ProductsGrid } from "../components/ProductsGrid";
+import api from "../axios";
 
 export function LandingPage() {
   return (
@@ -39,13 +39,11 @@ function RecommendedProductsGrid() {
   console.log(recommendedProducts);
 
   useEffect(() => {
-    // const getRecommendedProducts = async () => {
-    //   const response = await api.get("/api/products/recommended");
-    //   setRecommendedProducts(response.data);
-    // };
-    // getRecommendedProducts()
-
-    setRecommendedProducts(products);
+    const getRecommendedProducts = async () => {
+      const response = await api.get("/api/products/all");
+      setRecommendedProducts(response.data);
+    };
+    getRecommendedProducts();
   }, []);
 
   return (
