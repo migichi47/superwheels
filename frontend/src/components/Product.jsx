@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 
 export function Product({
-  id,
+  _id: id,
   category,
   make,
   model,

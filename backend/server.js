@@ -29,15 +29,29 @@ app.get("/api/products/all", async (req, res) => {
   try {
     const products = await Product.find();
     res.status(200).json(products);
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).json({ msg: "Could not fetch products" });
+  }
+});
+
+
+app.get("/api/products/recommended", async (req, res) => {
+  try {
+    const products = await Product.find().limit(10);
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json({ msg: "Could not fetch products" });
+  }
 });
 
 app.get("/api/products/:id", async (req, res) => {
-  const parsedId = parseInt(req.params.id);
+  const foundProduct = await Product.findById(req.params.id);
 
-  const products = await Product.find();
-  const foundProduct = await products.find(
-    (product) => product.id === parsedId,
-  );
+  if (!foundProduct) {
+    return res.status(404).json({
+      message: "Product not found",
+    });
+  }
   res.status(200).json(foundProduct);
 });
+

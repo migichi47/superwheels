@@ -39,7 +39,7 @@ function RecommendedProductsGrid() {
 
   useEffect(() => {
     const getRecommendedProducts = async () => {
-      const response = await api.get("/api/products/all");
+      const response = await api.get("/api/products/recommended");
       setRecommendedProducts(response.data);
     };
     getRecommendedProducts();
