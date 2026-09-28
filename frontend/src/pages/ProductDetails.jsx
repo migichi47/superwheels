@@ -1,10 +1,11 @@
 import { BsWhatsapp } from "react-icons/bs";
 import { Button } from "../components/Button";
+import { MdCheckCircle } from "react-icons/md";
 
 export function ProductDetails() {
   return (
-    <div className="flex gap-10 p-10 min-h-150 flex-col md:flex-row items-center">
-      <div className="md:max-w-80 max-w-120 overflow-hidden rounded-2xl p-5 border border-gray-300 h-fit">
+    <div className="flex gap-10 p-10 min-h-150 flex-col md:flex-row items-center w-fit mx-auto">
+      <div className="md:max-w-80 lg:max-w-120 max-w-120 overflow-hidden rounded-2xl p-5 border border-gray-300 h-fit">
         <img
           src="https://pictures-kenya.jijistatic.com/63186269_MTUwMC0xMTI1LTA1NTE2MjIxNzg.webp"
           alt=""
@@ -13,7 +14,8 @@ export function ProductDetails() {
       <div className="space-y-15">
         <div className="space-y-3">
           <h1 className="font-bold text-2xl">Headlight Mazda Atenza 2016</h1>
-          <h2 className="text-lg font-semibold text-primary">Kes 28,000</h2>
+          <h2 className="text-xl font-semibold text-primary">Kes 28,000</h2>
+          <span className="flex items-center gap-1 text-green-600 text-sm"><MdCheckCircle /> in stock</span>
         </div>
 
         <div className="space-y-3">
