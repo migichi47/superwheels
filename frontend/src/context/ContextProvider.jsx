@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
-import { getInitialTheme } from "../utils/getInitialTheme";
 import api from "../axios";
 
 const CreateContext = createContext();
@@ -8,7 +7,7 @@ const CreateContext = createContext();
 export function ContextProvider({ children }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState("light");
   const [setFilteredCategory] = useState("");
 
   useEffect(() => {

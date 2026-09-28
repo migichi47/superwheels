@@ -36,7 +36,6 @@ function FeaturedCategories() {
 
 function RecommendedProductsGrid() {
   const [recommendedProducts, setRecommendedProducts] = useState([]);
-  console.log(recommendedProducts);
 
   useEffect(() => {
     const getRecommendedProducts = async () => {
