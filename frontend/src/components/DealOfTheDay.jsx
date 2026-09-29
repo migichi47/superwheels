@@ -43,16 +43,14 @@ export function DealOfTheDay() {
         alt=""
       />
       <div className="bg-black/60 w-full h-full absolute" />
-      <div className="mx-auto absolute w-fit top-10 bg-white px-10 py-10 flex gap-20">
+      <div className="mx-auto absolute w-fit top-10 bg-white px-10 py-10 flex gap-20 items-center group">
         <div className="space-y-2">
           <h1 className="font-bold text-2xl text-white bg-primary py-2 px-5 absolute -top-5 left-5">
             Deal of the Day
           </h1>
-          <img
-            src="https://pictures-kenya.jijistatic.com/75660525_MzAwLTY1MC1mZTY1ZWJmNmI0.webp"
-            alt=""
-            className="max-h-100"
-          />
+          <div className="max-h-100 overflow-hidden max-w-100">
+            <img src={product?.image} alt="" className="group-hover:scale-110 transition" />
+          </div>
         </div>
         <div className="space-y-20">
           <div className="space-y-5">
@@ -87,7 +85,7 @@ export function DealOfTheDay() {
               </div>
             </div>
           </div>
-          <Button className="px-5 bg-black">WHATSAPP TO ORDER</Button>
+          <Button className="px-5 bg-black hover:bg-black/80">WHATSAPP TO ORDER</Button>
         </div>
         <img
           src="../../images/images.png"
