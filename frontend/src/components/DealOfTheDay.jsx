@@ -36,16 +36,16 @@ export function DealOfTheDay() {
   }, [deal, expiresAt]);
 
   return (
-    <div className="relative px-10  overflow-auto h-150 flex justify-center">
+    <div className="relative px-10 lg:overflow-hidden h-185 lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
       <img
         className="w-[90%]"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKQz41m6jJhHkAX9w12d7CZNmTwBjSwaQN4CjS94_BFocqyYfvEztT6G61&s=10"
         alt=""
       />
-      <div className="bg-black/60 w-full h-full absolute" />
-      <div className="mx-auto absolute w-fit top-10 bg-white px-10 py-10 flex gap-20 items-center group">
+      <div className="bg-black/60 w-full h-full absolute hidden lg:block" />
+      <div className="mx-auto absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col lg:flex-row gap-20 items-center group h-full lg:h-fit">
         <div className="space-y-2">
-          <h1 className="font-bold text-2xl text-white bg-primary py-2 px-5 absolute -top-5 left-5">
+          <h1 className="font-bold text-2xl text-white bg-primary py-2 px-5 w-full lg:w-fit flex justify-center lg:block lg:absolute -top-5 left-5">
             Deal of the Day
           </h1>
           <div className="max-h-100 overflow-hidden max-w-100">
@@ -89,7 +89,7 @@ export function DealOfTheDay() {
         </div>
         <img
           src="../../images/images.png"
-          className="h-50 absolute bottom-0 right-0"
+          className="lg:h-50 h-30 absolute bottom-0 right-0"
           alt=""
         />
       </div>
