@@ -5,12 +5,14 @@ import { Category } from "../components/Category";
 import { ProductsGrid } from "../components/ProductsGrid";
 import { SlideShow } from "../components/SlideShow";
 import api from "../axios";
+import { DealOfTheDay } from "../components/DealOfTheDay";
 
 
 export function LandingPage() {
   return (
     <div className="space-y-30 mt-10">
       <SlideShow/>
+      <DealOfTheDay />
       <FeaturedCategories />
       <RecommendedProductsGrid />
     </div>

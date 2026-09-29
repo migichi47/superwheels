@@ -58,7 +58,7 @@ app.get("/api/products/deal-of-the-day", async (req, res) => {
 
     // gives 30% discount
     const originalPrice = product.price;
-    const dealPrice = originalPrice * 0.7;
+    const dealPrice = Math.floor(originalPrice * 0.7);
 
     //set expiry time
     const expiresAt = new Date();
@@ -69,7 +69,6 @@ app.get("/api/products/deal-of-the-day", async (req, res) => {
       originalPrice,
       dealPrice,
       expiresAt,
-      index
     });
   } catch (err) {
     console.error(err);

@@ -1,5 +1,7 @@
 export function formatName(name) {
-  return name[0].toUpperCase() + name.slice(1) + "s";
+  if (name) return name[0].toUpperCase() + name.slice(1) + "s";
 }
 
-formatName("sidemirror");
+export function capitaliseFirstLetter(name) {
+  if (name) return name[0].toUpperCase() + name.slice(1);
+}
