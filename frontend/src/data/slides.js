@@ -5,6 +5,7 @@ export const slides = [
     description: "Wide selection of autoparts",
     title: "At the Lowest",
     keyword: "Prices",
+    buttonText: "Explore Now",
   },
   {
     image:
@@ -12,6 +13,7 @@ export const slides = [
     description: "Premium auto accessories",
     title: "Unbeatable Quality",
     keyword: "Deals",
+    buttonText: "Shop Now",
   },
   {
     image:
@@ -19,5 +21,6 @@ export const slides = [
     description: "Trusted car parts suppliers",
     title: "Drive With",
     keyword: "Confidence",
+    buttonText: "Discover Now",
   },
 ];
