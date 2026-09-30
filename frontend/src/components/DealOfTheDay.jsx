@@ -37,7 +37,7 @@ export function DealOfTheDay() {
   }, [deal, expiresAt]);
 
   return (
-    <div className="relative px-10 lg:overflow-hidden h-185 lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
+    <div className="relative px-10 lg:overflow-hidden h-220 lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
       <img
         className="w-[90%]"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKQz41m6jJhHkAX9w12d7CZNmTwBjSwaQN4CjS94_BFocqyYfvEztT6G61&s=10"
@@ -46,24 +46,24 @@ export function DealOfTheDay() {
       <div className="bg-black/60 w-full h-full absolute hidden lg:block" />
       <div
         className="mx-auto absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col
-        lg:flex-row gap-20 items-center group h-full lg:h-fit"
+        lg:flex-row gap-20 items-center grouplg:h-fit"
       >
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-center">
           <h1
             className="font-bold text-2xl text-white bg-primary py-2 px-5 w-full lg:w-fit flex
           justify-center lg:block lg:absolute -top-5 left-5"
           >
             Deal of the Day
           </h1>
-          <div className="max-h-100 overflow-hidden max-w-70">
+          <div className="max-h-100 overflow-hidden max-w-100 lg:max-w-80">
             <img
               src={product?.image}
               alt=""
-              className="group-hover:scale-110 transition"
+              className="group-hover:scale-110 transition w-full"
             />
           </div>
         </div>
-        <div className="space-y-20">
+        <div className="lg:space-y-20 space-y-10">
           <div className="space-y-5">
             <h1 className="text-2xl font-semibold">
               {capitaliseFirstLetter(product?.category)}
@@ -76,11 +76,13 @@ export function DealOfTheDay() {
             <h2 className="text-xl text-primary font-semibold">
               Ksh {addComma(dealPrice)}
             </h2>
-            <h3 className="text-sm text-gray-500 max-w-120">{product?.description}</h3>
+            <h3 className="text-sm text-gray-500 max-w-120">
+              {product?.description}
+            </h3>
             <div
               className="[&>div]:border [&>div]:border-gray-300 [&>div]:rounded-sm [&>div]:flex [&>div]:flex-col
             [&>div]:items-center  [&>div]:gap-1 flex gap-3 [&>div]:[&>h1]:font-semibold [&>div]:[&>h1]:text-xl
-          [&>div]:[&>h2]:text-gray-400 [&>div]:[&>h2]:text-sm [&>div]:px-3"
+          [&>div]:[&>h2]:text-gray-400 [&>div]:[&>h2]:text-sm [&>div]:px-3 mx-auto w-fit lg:w-full"
             >
               <div>
                 <h1>{hoursLeft}</h1>
