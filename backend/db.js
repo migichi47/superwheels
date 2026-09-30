@@ -8,10 +8,8 @@ export async function connectToMongoDB() {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("Database: ", mongoose.connection.db.databaseName);
   } catch (err) {
-    res.status(500).json({
-      msg: "Could not fetch products",
-      error: err.message,
-    });
+    console.error("MongoDB connection failed:", err);
+    throw err;
   }
 }
 
