@@ -39,12 +39,12 @@ function Slide({ description, image, title, keyword, buttonText }) {
   return (
     <div className="flex justify-center gap-10 items-center h-150">
       <div className="space-y-15 absolute lg:relative px-10 lg:px-0 z-10">
-        <div className="space-y-2">
+        <div className="space-y-2 flex flex-col items-center lg:block">
           <p className="text-xl lg:text-3xl font-semibold text-white lg:text-gray-600">{description}</p>
           <p className="text-3xl lg:text-6xl font-bold uppercase text-secondary">{title}</p>
           <p className="text-5xl lg:text-6xl font-bold uppercase text-primary">{keyword}</p>
         </div>
-        <Button className="px-6" onClick={() => navigate("/products")}>
+        <Button className="px-6 mx-auto lg:m-0" onClick={() => navigate("/products")}>
           {buttonText}
         </Button>
       </div>

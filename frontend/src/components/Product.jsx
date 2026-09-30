@@ -17,7 +17,7 @@ export function Product({
 }) {
   return (
     <Link
-      className="flex flex-col items-center w-fit mx-auto max-w-100 h-fit gap-2 bg-white dark:bg-dark dark:text-white border
+      className="flex flex-col items-center w-full mx-auto max-w-100 h-fit gap-2 bg-white dark:bg-dark dark:text-white border
   border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid
     hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group"
       to={`/products/details/${id}`}

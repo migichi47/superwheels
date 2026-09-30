@@ -26,7 +26,7 @@ export function ProductDetails() {
 
   return (
     <div className="flex gap-10 p-10 min-h-150 flex-col md:flex-row items-center w-fit mx-auto">
-      <div className="md:max-w-80 lg:max-w-120 max-w-120 overflow-hidden rounded-2xl p-5 border border-gray-300 h-fit">
+      <div className="md:max-w-80 lg:max-w-120 max-w-120 overflow-hidden rounded-sm p-5 border border-gray-300 h-fit">
         <img src={image} alt="" />
       </div>
       <div className="space-y-15">
