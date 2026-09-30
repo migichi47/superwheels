@@ -33,7 +33,7 @@ export function Product({
           <span className="font-bold">{capitaliseFirstLetter(category)}</span>{" "}
           <span>{capitaliseFirstLetter(make)}</span>{" "}
           <span>{capitaliseFirstLetter(model)}</span>
-          <span className="mx-1 font-semibold text-amber-600 text-sm">{year}</span>
+          <span className="mx-1 font-semibold text-green-600 text-sm">{year}</span>
         </p>
         <p className="text-[11px] text-center text-gray-500 dark:text-gray-600">
           {truncateWords(description, 8)}

@@ -7,7 +7,7 @@ import { formatName } from "../utils/formatName";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
-  const { displayedProducts, filteredCategory } = useContext(CreateContext);
+  const { filteredProducts, filteredCategory } = useContext(CreateContext);
 
   return (
     <div className="my-10 space-y-5">
@@ -39,7 +39,7 @@ export function ProductsPage() {
         </div>
       </div>
       {/* products grid */}
-      <ProductsGrid products={displayedProducts} />
+      <ProductsGrid products={filteredProducts} />
     </div>
   );
 }
