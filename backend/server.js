@@ -93,3 +93,5 @@ app.get("/api/products", async (req, res) => {
     res.status(500).json({ msg: "Error in getting query products" });
   }
 });
+
+export default app;
