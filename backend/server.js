@@ -3,7 +3,6 @@ import express from "express";
 import cors from "cors";
 import Product from "./models/Product.js";
 import { connectToMongoDB } from "./db.js";
-import mongoose from "mongoose";
 
 const app = express();
 
@@ -11,9 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 connectToMongoDB().then(() => {
-  app.listen(3000, () => {
-    console.log("server listening to port 3000");
-  });
+  console.log("Mongodb connected")
 });
 
 app.get("/", (req, res) => {
