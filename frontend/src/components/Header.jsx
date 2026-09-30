@@ -121,7 +121,6 @@ function FirstHeader() {
 function SecondHeader() {
   const navigate = useNavigate();
   const { searchQuery, setSearchQuery } = useContext(CreateContext);
-
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -138,6 +137,13 @@ function SecondHeader() {
           className="bg-white px-3 py-2 rounded-l-lg flex grow max-w-150 mx-auto outline-0"
           value={searchQuery}
           onChange={handleSearch}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              navigate("/products");
+            } else if (e.key === "Escape") {
+              setSearchQuery("");
+            }
+          }}
         />
         <IoIosSearch
           className="h-full text-5xl p-2 text-primary bg-secondary rounded-r-lg cursor-pointer
