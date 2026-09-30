@@ -8,10 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-connectToMongoDB().then(() => {
-  console.log("Mongodb connected")
-});
+app.listen(3000)
 
 app.get("/", (req, res) => {
   res.send("This is the home page");
@@ -19,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.get("/api/products/all", async (req, res) => {
   try {
+    await connectToMongoDB();
     const products = await Product.find();
     res.status(200).json(products);
   } catch (err) {
@@ -28,6 +26,7 @@ app.get("/api/products/all", async (req, res) => {
 
 app.get("/api/products/recommended", async (req, res) => {
   try {
+    await connectToMongoDB();
     const products = await Product.find().limit(10);
     res.status(200).json(products);
   } catch (err) {
@@ -37,6 +36,7 @@ app.get("/api/products/recommended", async (req, res) => {
 
 app.get("/api/products/deal-of-the-day", async (req, res) => {
   try {
+    await connectToMongoDB();
     const products = await Product.find();
 
     if (products.length === 0)
@@ -69,6 +69,7 @@ app.get("/api/products/deal-of-the-day", async (req, res) => {
 });
 
 app.get("/api/products/:id", async (req, res) => {
+  await connectToMongoDB();
   const foundProduct = await Product.findById(req.params.id);
 
   if (!foundProduct) {
@@ -81,6 +82,7 @@ app.get("/api/products/:id", async (req, res) => {
 
 app.get("/api/products", async (req, res) => {
   try {
+    await connectToMongoDB();
     const { category } = req.query;
     const products = await Product.find({
       category: category.split(" ").join("").toLowerCase(),
