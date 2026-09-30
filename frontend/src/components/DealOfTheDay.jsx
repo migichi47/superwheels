@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import api from "../axios";
 import { addComma } from "../utils/addComma";
 import { capitaliseFirstLetter } from "../utils/formatName";
+import { orderOnWhatsApp } from "../utils/whatsappUrl";
 
 export function DealOfTheDay() {
   const [deal, setDeal] = useState({});
@@ -43,20 +44,30 @@ export function DealOfTheDay() {
         alt=""
       />
       <div className="bg-black/60 w-full h-full absolute hidden lg:block" />
-      <div className="mx-auto absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col lg:flex-row gap-20 items-center group h-full lg:h-fit">
+      <div
+        className="mx-auto absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col
+        lg:flex-row gap-20 items-center group h-full lg:h-fit"
+      >
         <div className="space-y-2">
-          <h1 className="font-bold text-2xl text-white bg-primary py-2 px-5 w-full lg:w-fit flex justify-center lg:block lg:absolute -top-5 left-5">
+          <h1
+            className="font-bold text-2xl text-white bg-primary py-2 px-5 w-full lg:w-fit flex
+          justify-center lg:block lg:absolute -top-5 left-5"
+          >
             Deal of the Day
           </h1>
-          <div className="max-h-100 overflow-hidden max-w-100">
-            <img src={product?.image} alt="" className="group-hover:scale-110 transition" />
+          <div className="max-h-100 overflow-hidden max-w-70">
+            <img
+              src={product?.image}
+              alt=""
+              className="group-hover:scale-110 transition"
+            />
           </div>
         </div>
         <div className="space-y-20">
           <div className="space-y-5">
             <h1 className="text-2xl font-semibold">
-              {capitaliseFirstLetter(product?.category)}{" "}
-              {capitaliseFirstLetter(product?.make)}{" "}
+              {capitaliseFirstLetter(product?.category)}
+              {capitaliseFirstLetter(product?.make)}
               {capitaliseFirstLetter(product?.model)} {product?.year}
             </h1>
             <s className="text-secondary font-semibold text-sm">
@@ -65,10 +76,10 @@ export function DealOfTheDay() {
             <h2 className="text-xl text-primary font-semibold">
               Ksh {addComma(dealPrice)}
             </h2>
-            <h3 className="text-sm text-gray-500">{product?.description}</h3>
+            <h3 className="text-sm text-gray-500 max-w-120">{product?.description}</h3>
             <div
               className="[&>div]:border [&>div]:border-gray-300 [&>div]:rounded-sm [&>div]:flex [&>div]:flex-col
-          [&>div]:items-center  [&>div]:gap-1 flex gap-3 [&>div]:[&>h1]:font-semibold [&>div]:[&>h1]:text-xl
+            [&>div]:items-center  [&>div]:gap-1 flex gap-3 [&>div]:[&>h1]:font-semibold [&>div]:[&>h1]:text-xl
           [&>div]:[&>h2]:text-gray-400 [&>div]:[&>h2]:text-sm [&>div]:px-3"
             >
               <div>
@@ -85,11 +96,24 @@ export function DealOfTheDay() {
               </div>
             </div>
           </div>
-          <Button className="px-5 bg-black hover:bg-black/80">WHATSAPP TO ORDER</Button>
+          <Button
+            className="px-5 bg-black hover:bg-black/80"
+            onClick={() =>
+              orderOnWhatsApp(
+                product?.category,
+                product?.make,
+                product?.model,
+                product?.year,
+                dealPrice,
+              )
+            }
+          >
+            WHATSAPP TO ORDER
+          </Button>
         </div>
         <img
           src="../../images/images.png"
-          className="lg:h-50 h-30 absolute bottom-0 right-0"
+          className="lg:h-45 h-30 absolute bottom-0 right-0"
           alt=""
         />
       </div>

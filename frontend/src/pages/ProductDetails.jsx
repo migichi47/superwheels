@@ -7,6 +7,7 @@ import api from "../axios";
 import { addComma } from "../utils/addComma";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { orderOnWhatsApp } from "../utils/whatsappUrl.js";
+import { capitaliseFirstLetter } from "../utils/formatName.js";
 
 export function ProductDetails() {
   const { id } = useParams();
@@ -31,7 +32,8 @@ export function ProductDetails() {
       <div className="space-y-15">
         <div className="space-y-3">
           <h1 className="font-bold text-2xl">
-            {category} {make} {model} {year}
+            {capitaliseFirstLetter(category)} {capitaliseFirstLetter(make)}
+            {capitaliseFirstLetter(model)} {year}
           </h1>
           <h2 className="text-xl font-semibold text-primary">
             Kes {addComma(price)}
