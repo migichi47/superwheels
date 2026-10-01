@@ -46,7 +46,7 @@ export function DealOfTheDay() {
   return (
     <div className="relative px-10 lg:overflow-hidden h-220 lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
       <img
-        className="w-[90%]"
+        className="w-[90%] hidden lg:block"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKQz41m6jJhHkAX9w12d7CZNmTwBjSwaQN4CjS94_BFocqyYfvEztT6G61&s=10"
         alt=""
       />
