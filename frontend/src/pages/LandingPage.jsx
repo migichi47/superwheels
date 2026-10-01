@@ -6,12 +6,12 @@ import { ProductsGrid } from "../components/ProductsGrid";
 import { SlideShow } from "../components/SlideShow";
 import api from "../axios";
 import { DealOfTheDay } from "../components/DealOfTheDay";
-
+import { LoadingProducts } from "../components/LoadingProducts";
 
 export function LandingPage() {
   return (
     <div className="mt-10">
-      <SlideShow/>
+      <SlideShow />
       <DealOfTheDay />
       <FeaturedCategories />
       <RecommendedProductsGrid />
@@ -41,11 +41,18 @@ function FeaturedCategories() {
 
 function RecommendedProductsGrid() {
   const [recommendedProducts, setRecommendedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getRecommendedProducts = async () => {
-      const response = await api.get("/api/products/recommended");
-      setRecommendedProducts(response.data);
+      try {
+        const response = await api.get("/api/products/recommended");
+        setRecommendedProducts(response.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     };
     getRecommendedProducts();
   }, []);
@@ -60,7 +67,11 @@ function RecommendedProductsGrid() {
         </h1>
       </div>
       {/* category grid */}
-      <ProductsGrid products={recommendedProducts} />
+      {loading ? (
+        <LoadingProducts />
+      ) : (
+        <ProductsGrid products={recommendedProducts} />
+      )}
     </div>
   );
 }

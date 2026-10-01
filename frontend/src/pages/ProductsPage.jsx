@@ -4,10 +4,13 @@ import { categories } from "../data/categories";
 import CreateContext from "../context/ContextProvider";
 import { ProductsGrid } from "../components/ProductsGrid";
 import { formatName } from "../utils/formatName";
+import { LoadingProducts } from "../components/LoadingProducts";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
   const { filteredProducts, filteredCategory } = useContext(CreateContext);
+
+  if(filteredProducts.length === 0) return <LoadingProducts />
 
   return (
     <div className="my-10 space-y-5">

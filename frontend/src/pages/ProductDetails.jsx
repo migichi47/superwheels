@@ -8,21 +8,33 @@ import { addComma } from "../utils/addComma";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { orderOnWhatsApp } from "../utils/whatsappUrl.js";
 import { capitaliseFirstLetter } from "../utils/formatName.js";
+import { LoadingProducts } from "../components/LoadingProducts.jsx";
 
 export function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getProduct() {
-      const response = await api.get(`/api/products/${id}`);
-      setProduct(response.data);
+      try {
+        const response = await api.get(`/api/products/${id}`);
+        setProduct(response.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     }
     getProduct();
   }, [id]);
 
   const { category, make, model, year, description, instock, price, image } =
     product;
+
+  if (loading) {
+    return <LoadingProducts />;
+  }
 
   return (
     <div className="flex gap-10 p-10 min-h-150 flex-col md:flex-row items-center w-fit mx-auto">
