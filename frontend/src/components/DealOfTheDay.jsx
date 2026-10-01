@@ -50,8 +50,8 @@ export function DealOfTheDay() {
       >
         <div className="space-y-2 flex flex-col items-center">
           <h1
-            className="font-bold text-2xl text-white bg-primary py-2 px-5 w-full lg:w-fit flex
-          justify-center lg:block lg:absolute -top-5 left-5"
+            className="font-bold text-xl lg:text-2xl text-primary uppercase lg:text-white lg:bg-primary py-2 px-5 w-full lg:w-fit flex
+          justify-center lg:block lg:absolute -top-5 left-5 underline lg:no-underline"
           >
             Deal of the Day
           </h1>

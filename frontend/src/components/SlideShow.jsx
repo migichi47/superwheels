@@ -53,6 +53,7 @@ function Slide({ description, image, title, keyword, buttonText }) {
     </div>
   );
 }
+
 function NextArrow({ onClick }) {
   return (
     <button
