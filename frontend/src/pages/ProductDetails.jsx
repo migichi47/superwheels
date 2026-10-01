@@ -43,9 +43,11 @@ export function ProductDetails() {
       </div>
       <div className="space-y-15">
         <div className="space-y-3">
-          <h1 className="font-bold text-2xl">
-            {capitaliseFirstLetter(category)} {capitaliseFirstLetter(make)}
-            {capitaliseFirstLetter(model)} {year}
+          <h1 className="font-bold text-2xl space-x-1.5">
+            <span>{capitaliseFirstLetter(product?.category)}</span>
+            <span>{capitaliseFirstLetter(product?.make)}</span>
+            <span>{capitaliseFirstLetter(product?.model)}</span>
+            <span>{product?.year}</span>
           </h1>
           <h2 className="text-xl font-semibold text-primary">
             Kes {addComma(price)}

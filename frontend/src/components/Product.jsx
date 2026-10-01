@@ -29,11 +29,11 @@ export function Product({
         />
       </div>
       <div className="flex flex-col items-center space-y-2 py-2 px-5">
-        <p className="text-[18px] font-semibold text-amber-500 dark:text-gray-300">
-          <span className="font-bold">{capitaliseFirstLetter(category)}</span>{" "}
-          <span>{capitaliseFirstLetter(make)}</span>{" "}
+        <p className="text-[18px] font-semibold text-amber-500 dark:text-gray-300 space-x-1.5">
+          <span className="font-bold">{capitaliseFirstLetter(category)}</span>
+          <span>{capitaliseFirstLetter(make)}</span>
           <span>{capitaliseFirstLetter(model)}</span>
-          <span className="mx-1 font-semibold text-green-600 text-sm">{year}</span>
+          <span className="font-semibold text-green-600 text-sm">{year}</span>
         </p>
         <p className="text-[11px] text-center text-gray-500 dark:text-gray-600">
           {truncateWords(description, 8)}

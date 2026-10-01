@@ -82,10 +82,11 @@ export function DealOfTheDay() {
             </div>
             <div className="lg:space-y-20 space-y-10">
               <div className="space-y-5">
-                <h1 className="text-2xl font-semibold">
-                  {capitaliseFirstLetter(product?.category)}
-                  {capitaliseFirstLetter(product?.make)}
-                  {capitaliseFirstLetter(product?.model)} {product?.year}
+                <h1 className="text-2xl font-semibold space-x-1.5">
+                  <span>{capitaliseFirstLetter(product?.category)}</span>
+                  <span>{capitaliseFirstLetter(product?.make)}</span>
+                  <span>{capitaliseFirstLetter(product?.model)}</span>
+                  <span>{product?.year}</span>
                 </h1>
                 <s className="text-secondary font-semibold text-sm">
                   Ksh {addComma(originalPrice)}
