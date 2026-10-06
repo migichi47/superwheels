@@ -74,7 +74,7 @@ function FirstHeader() {
         </div>
       )}
       <img
-        src="https://www.superwheelsautoparts.com/images/super-wheels.jpg"
+        src="../../images/logo.png"
         alt=""
         className="w-30"
       />
