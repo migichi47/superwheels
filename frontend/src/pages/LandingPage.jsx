@@ -10,7 +10,7 @@ import { LoadingProducts } from "../components/LoadingProducts";
 
 export function LandingPage() {
   return (
-    <div className="mt-10">
+    <div className="">
       <SlideShow />
       <DealOfTheDay />
       <FeaturedCategories />

@@ -6,6 +6,9 @@ import CreateContext from "../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { ReactTyped } from "react-typed";
+import { CiDark } from "react-icons/ci";
+import { MdOutlineLightMode } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export function Header() {
   return (
@@ -17,11 +20,13 @@ export function Header() {
 }
 
 function FirstHeader() {
-  const { showSidebar, setShowSidebar } = useContext(CreateContext);
+  const { showSidebar, setShowSidebar, setTheme, theme } =
+    useContext(CreateContext);
   const navigate = useNavigate();
 
   return (
-    <div className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white bg-primary dark:bg-gray-800 py-2 px-10">
+    <div className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white
+    bg-primary dark:bg-gray-800 py-2 px-10">
       {showSidebar && (
         <div
           className="flex flex-col absolute sm:hidden slide-from-left h-screen top-0 left-0 w-65 bg-white text-black z-100 pt-20 
@@ -73,14 +78,16 @@ function FirstHeader() {
           </a>
         </div>
       )}
-      <img
-        src="../../images/logo.png"
-        alt=""
-        className="w-30"
-      />
+      <div className="flex items-center gap-4">
+        <GiHamburgerMenu
+          className="inline-flex sm:hidden text-2xl relative"
+          onClick={() => setShowSidebar(true)}
+        />
+        <img src="../../images/logo.png" alt="" className="w-30" />
+      </div>
 
       <BrandsTyped className="hidden sm:flex" />
-      <div className="flex gap-2 items-center [&>span]:rounded-sm [&>span]:cursor-pointer [&>span]:hover:bg-secondary">
+      <div className="sm:flex gap-2 items-center [&>span]:rounded-sm [&>span]:cursor-pointer [&>span]:hover:bg-secondary hidden">
         <span className="bg-white p-2 move-up">
           <BsWhatsapp className="text-green-500" />
         </span>
@@ -113,6 +120,18 @@ function FirstHeader() {
             className="w-5 h-5"
           />
         </span>
+      </div>
+      <div
+        onClick={() => {
+          setTheme(theme === "dark" ? "light" : "dark");
+        }}
+        className="cursor-pointer dark:text-white flex sm:hidden"
+      >
+        {theme === "dark" ? (
+          <MdOutlineLightMode className="text-2xl" />
+        ) : (
+          <CiDark className="text-3xl" />
+        )}
       </div>
     </div>
   );

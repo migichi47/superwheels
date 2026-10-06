@@ -37,7 +37,7 @@ function Slide({ description, image, title, keyword, buttonText }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center gap-10 items-center h-150">
+    <div className="flex justify-center gap-10 items-center h-100 sm:h-150">
       <div className="space-y-15 absolute lg:relative px-10 lg:px-0 z-10">
         <div className="space-y-2 flex flex-col items-center lg:block">
           <p className="text-xl lg:text-3xl font-semibold text-white lg:text-gray-600">{description}</p>
@@ -48,7 +48,7 @@ function Slide({ description, image, title, keyword, buttonText }) {
           {buttonText}
         </Button>
       </div>
-      <div className="bg-black/20 w-full h-full z-1 absolute lg:hidden" />
+      <div className="bg-black/5 w-full h-full z-1 absolute lg:hidden" />
       <img src={image} alt="" className="" />
     </div>
   );

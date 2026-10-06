@@ -8,7 +8,7 @@ export function Navbar() {
   const { setShowSidebar, setTheme, theme } = useContext(CreateContext);
 
   return (
-    <nav className="sticky flex items-center md:top-15 top-15 border-b border-primary/50 z-50 bg-white py-3 dark:bg-dark dark:text-white">
+    <nav className="sticky sm:flex hidden items-center md:top-15 top-15 border-b border-primary/50 z-50 bg-white py-3 dark:bg-dark dark:text-white">
       <GiHamburgerMenu
         className="block sm:hidden text-3xl relative ml-10"
         onClick={() => setShowSidebar(true)}
