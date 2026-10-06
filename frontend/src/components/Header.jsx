@@ -25,8 +25,10 @@ function FirstHeader() {
   const navigate = useNavigate();
 
   return (
-    <div className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white
-    bg-primary dark:bg-gray-800 py-2 px-10">
+    <div
+      className="sticky top-0 flex justify-between border-b border-black/30 items-center w-full z-100 text-white
+    bg-primary dark:bg-gray-800 py-2 px-10"
+    >
       {showSidebar && (
         <div
           className="flex flex-col absolute sm:hidden slide-from-left h-screen top-0 left-0 w-65 bg-white text-black z-100 pt-20 
@@ -83,7 +85,12 @@ function FirstHeader() {
           className="inline-flex sm:hidden text-2xl relative"
           onClick={() => setShowSidebar(true)}
         />
-        <img src="../../images/logo.png" alt="" className="w-30" />
+        <img
+          src="../../images/logo.png"
+          alt=""
+          className="w-30"
+          onClick={() => navigate("/")}
+        />
       </div>
 
       <BrandsTyped className="hidden sm:flex" />
