@@ -44,7 +44,7 @@ export function DealOfTheDay() {
   }, [deal, expiresAt]);
 
   return (
-    <div className="relative px-10 lg:overflow-hidden h-220 lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
+    <div className="relative px-10 lg:overflow-hidden h-fit lg:h-150 flex justify-center shadow-2xl mb-30 lg:mb-10">
       <img
         className="w-[90%] hidden lg:block"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKQz41m6jJhHkAX9w12d7CZNmTwBjSwaQN4CjS94_BFocqyYfvEztT6G61&s=10"
@@ -52,8 +52,8 @@ export function DealOfTheDay() {
       />
       <div className="bg-black/60 w-full h-full absolute hidden lg:block" />
       <div
-        className="mx-auto absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col
-        lg:flex-row gap-20 items-center grouplg:h-fit"
+        className="mx-auto lg:absolute w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col
+        lg:flex-row gap-20 items-center group h-fit"
       >
         {loading ? (
           <div className="h-80 w-90 flex items-center justify-center">

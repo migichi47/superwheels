@@ -10,7 +10,7 @@ import { LoadingProducts } from "../components/LoadingProducts";
 
 export function LandingPage() {
   return (
-    <div className="">
+    <div>
       <SlideShow />
       <DealOfTheDay />
       <FeaturedCategories />
@@ -21,7 +21,7 @@ export function LandingPage() {
 
 function FeaturedCategories() {
   return (
-    <div className="flex flex-col gap-10 items-center dark:text-white shadow-sm py-10">
+    <div className="flex flex-col gap-10 items-center dark:text-white shadow-sm pb-10">
       <div className="text-center space-y-2">
         <h1 className="font-bold text-2xl flex items-center gap-1">
           <GoDotFill className="text-xs text-primary" />

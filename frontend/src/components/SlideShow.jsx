@@ -37,7 +37,10 @@ function Slide({ description, image, title, keyword, buttonText }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center gap-5 lg:gap-10 items-center h-100 sm:h-150 px-5 md:px-0 shadow-4xl">
+    <div
+      className="flex justify-center lg:gap-10 items-center h-100 sm:h-150 pl-5 px-0 md:px-10 md:pl-0
+    shadow-4xl bg-black/20 sm:bg-white"
+    >
       <div className="space-y-15 z-10">
         <div className="space-y-2 items-center">
           <p className="text-lg md:text-3xl font-semibold text-gray-600">
@@ -57,20 +60,17 @@ function Slide({ description, image, title, keyword, buttonText }) {
           {buttonText}
         </Button>
       </div>
-      <img src={image} alt="" className="flex min-w-0 max-w-40 md:max-w-100" />
+      <img src={image} alt="" className="flex min-w-0 max-w-50 md:max-w-100" />
     </div>
   );
 }
 
+const arrowClasses =
+  "absolute top-7/8 sm:top-1/2 z-10 -translate-y-1/2 bg-none text-black hover:bg-primary w-12 h-12 lg:w-15 lg:h-15 rounded-full flex lg:group-hover:flex items-center justify-center border-2 border-gray-400 hover:scale-110 transition cursor-pointer lg:hidden";
+
 function NextArrow({ onClick }) {
   return (
-    <button
-      onClick={onClick}
-      className="absolute right-4 top-7/8 z-10 -translate-y-1/2 bg-none text-black
-                hover:bg-primary w-12 h-12 lg:w-15 lg:h-15 rounded-full flex
-                lg:group-hover:flex items-center justify-center border-2 border-gray-300
-                hover:scale-110 transition cursor-pointer lg:hidden"
-    >
+    <button onClick={onClick} className={`right-4 ${arrowClasses}`}>
       <FaChevronRight />
     </button>
   );
@@ -78,13 +78,7 @@ function NextArrow({ onClick }) {
 
 function PrevArrow({ onClick }) {
   return (
-    <button
-      onClick={onClick}
-      className="absolute left-4 top-7/8 z-10 -translate-y-1/2 bg-none text-black
-                hover:bg-primary w-12 h-12 lg:w-15 lg:h-15 rounded-full flex
-                lg:group-hover:flex items-center justify-center border-2 border-gray-300
-                hover:scale-110 transition cursor-pointer lg:hidden"
-    >
+    <button onClick={onClick} className={`left-4 ${arrowClasses}`}>
       <FaChevronLeft />
     </button>
   );
