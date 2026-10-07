@@ -22,10 +22,10 @@ export function Product({
     hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group"
       to={`/products/details/${id}`}
     >
-      <div className="max-h-80 w-full overflow-hidden">
+      <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center">
         <img
           src={image}
-          className="mx-auto h-full w-full group-hover:scale-105 duration-300"
+          className="mx-auto sm:group-hover:scale-105 duration-300 w-full h-full sm:w-fit sm:h-fit sm:object-cover sm:object-[center_60%]"
         />
       </div>
       <div className="flex flex-col items-center space-y-2 py-2 px-5">

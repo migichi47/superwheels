@@ -132,8 +132,8 @@ export function DealOfTheDay() {
               </Button>
             </div>
             <img
-              src="../../images/images.png"
-              className="lg:h-45 h-30 absolute bottom-0 right-0"
+              src="../../images/deal-of-the-day.png"
+              className="lg:h-45 h-30 absolute bottom-0 right-10"
               alt=""
             />
           </>
