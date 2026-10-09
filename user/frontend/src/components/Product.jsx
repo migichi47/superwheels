@@ -28,7 +28,7 @@ export function Product({
           className="mx-auto sm:group-hover:scale-105 duration-300 w-full h-full sm:w-fit sm:h-fit sm:object-cover sm:object-[center_60%]"
         />
       </div>
-      <div className="flex flex-col items-center space-y-2 py-2 px-5">
+      <div className="flex flex-col items-center space-y-2 py-5 px-5">
         <p className="text-[18px] font-semibold text-amber-500 dark:text-gray-300 space-x-1.5">
           <span className="font-bold">{capitaliseFirstLetter(category)}</span>
           <span>{capitaliseFirstLetter(make)}</span>
@@ -41,9 +41,6 @@ export function Product({
         <p className="text-secondary dark:text-primary/80 text-lg font-bold">
           Ksh {addComma(price)}
         </p>
-        <Button className="w-full space-x-2 flex justify-center text-xs bg-black hover:bg-black/50 transition rounded-none">
-          <FaWhatsapp /> <span>Order on Whatsapp</span>
-        </Button>
       </div>
     </Link>
   );
