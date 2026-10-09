@@ -3,6 +3,7 @@ import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Navbar } from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
+import Breadcrumbs from "./components/Breadcrumbs";
 
 export function Layout() {
   return (
@@ -11,6 +12,7 @@ export function Layout() {
       <Header />
       <Navbar />
       <main>
+        <Breadcrumbs />
         <Outlet />
       </main>
       <Footer />
