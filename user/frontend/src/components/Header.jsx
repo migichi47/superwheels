@@ -14,8 +14,7 @@ export function Header() {
   return (
     <div className="fixed z-100 w-full [&>nav]:max-w-300 [&>nav]:mx-auto bg-white">
       <nav
-        className="top-0 flex justify-between items-center text-dark
-        py-2 px-5 gap-5"
+        className="top-0 flex justify-between items-center text-dark py-2 px-5 gap-5 h-24 sm:h-fit"
       >
         {showSidebar && <PhoneNav />}
 
@@ -50,13 +49,13 @@ export function Header() {
         </div>
 
         <div className="flex items-center relative lg:gap-2 gap-5">
-          <IoCartOutline className="text-2xl" />
+          <IoCartOutline className="sm:text-2xl text-3xl" />
           <span className="absolute -top-1 left-3.5 bg-primary rounded-full text-[10px] px-1">
             0
           </span>
           <span className="font-semibold text-sm hidden lg:block">Cart</span>
           <GiHamburgerMenu
-            className="text-xl relative lg:hidden"
+            className="text-3xl sm:text-xl relative lg:hidden"
             onClick={() => setShowSidebar(true)}
           />
         </div>
