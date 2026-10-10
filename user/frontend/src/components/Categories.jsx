@@ -19,7 +19,7 @@ export function Categories() {
         <span>View all</span>
         <MoveRight className="w-4" />
       </div>
-      <div className="flex overflow-x-scroll hide-scrollbar md:grid md:grid-cols-3 lg:grid-cols-4 gap-3 w-fit mx-auto">
+      <div className="flex overflow-x-scroll hide-scrollbar md:grid md:grid-cols-3 lg:grid-cols-4 gap-3 mx-auto">
         {categories.map((category, i) => (
           <Category key={i} {...category} />
         ))}
