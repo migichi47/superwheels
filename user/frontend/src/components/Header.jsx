@@ -1,13 +1,9 @@
-import { BsTiktok, BsWhatsapp } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
-import { CiDark } from "react-icons/ci";
-import { MdOutlineLightMode } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiUser } from "react-icons/ci";
 
@@ -16,10 +12,10 @@ export function Header() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed z-100 w-full [&>nav]:max-w-300 [&>nav]:mx-auto">
+    <div className="fixed z-100 w-full [&>nav]:max-w-300 [&>nav]:mx-auto bg-white">
       <nav
         className="top-0 flex justify-between items-center text-dark
-      bg-white py-2 px-5 gap-5"
+        py-2 px-5 gap-5"
       >
         {showSidebar && <PhoneNav />}
 
@@ -67,7 +63,7 @@ export function Header() {
       </nav>
       <hr className="text-gray-200" />
       <nav
-        className="items-center bg-white px-5 lg:flex gap-5 justify-start w-full [&>a]:text-gray-700
+        className="items-center px-5 lg:flex gap-5 justify-start w-full [&>a]:text-gray-700
         text-xs [&>a]:flex [&>a]:items-center h-14 [&>a]:px-2 [&>a]:rounded-t-lg
         [&>a]:transition-colors [&>a]:font-semibold hidden"
       >

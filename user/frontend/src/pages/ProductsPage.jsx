@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { FiFilter } from "react-icons/fi";
-import { categories } from "../data/categories";
+// import { categories } from "../data/categories";
 import CreateContext from "../context/ContextProvider";
-import { ProductsGrid } from "../components/ProductsGrid";
 import { formatName } from "../utils/formatName";
 import { LoadingProducts } from "../components/LoadingProducts";
 
@@ -33,16 +32,15 @@ export function ProductsPage() {
             [&>li]:cursor-pointer [&>li]:pr-2 [&>li]:border-b lg:group-hover:block lg:group-hover:opacity-100 
             transition-all duration-1000`}
           >
-            {categories.map((cat) => (
+            {/* {categories.map((cat) => (
               <li key={cat.name} onClick={() => setShowMenu(false)}>
                 {cat.name}
               </li>
-            ))}
+            ))} */}
           </ul>
         </div>
       </div>
       {/* products grid */}
-      <ProductsGrid products={filteredProducts} />
     </div>
   );
 }

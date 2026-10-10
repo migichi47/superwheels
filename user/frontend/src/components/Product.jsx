@@ -1,46 +1,50 @@
-import { FaWhatsapp } from "react-icons/fa";
 import { addComma } from "../utils/addComma";
-import { truncateWords } from "../utils/truncateWords";
-import { Button } from "./Button";
 import { Link } from "react-router-dom";
-import { capitaliseFirstLetter } from "../utils/formatName";
+import { ShoppingCart } from "lucide-react";
+import { GoDotFill } from "react-icons/go";
 
 export function Product({
-  _id: id,
   category,
+  image,
+  instock,
   make,
   model,
-  year,
-  image,
   price,
-  description,
+  year,
 }) {
   return (
     <Link
       className="flex flex-col items-center w-full mx-auto max-w-100 h-fit gap-2 bg-white dark:bg-dark dark:text-white border
-  border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid
-    hover:shadow-[0px_0px_10px_rgba(51,122,183,0.5)] transition-all cursor-pointer group"
-      to={`/products/details/${id}`}
+  border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid rounded-2xl hover:-translate-y-1
+    hover:shadow-sm transition-all duration-300 cursor-pointer group"
     >
-      <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center">
+      <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center rounded-t-2xl h-40">
         <img
           src={image}
-          className="mx-auto sm:group-hover:scale-105 duration-300 w-full h-full sm:w-fit sm:h-fit sm:object-cover sm:object-[center_60%]"
+          className="mx-auto sm:group-hover:scale-105 duration-300 sm:w-fit object-center sm:object-[center_60%]
+          sm:min-h-60"
         />
       </div>
-      <div className="flex flex-col items-center space-y-2 py-5 px-5">
-        <p className="text-[18px] font-semibold text-amber-500 dark:text-gray-300 space-x-1.5">
-          <span className="font-bold">{capitaliseFirstLetter(category)}</span>
-          <span>{capitaliseFirstLetter(make)}</span>
-          <span>{capitaliseFirstLetter(model)}</span>
-          <span className="font-semibold text-green-600 text-sm">{year}</span>
-        </p>
-        <p className="text-[11px] text-center text-gray-500 dark:text-gray-600">
-          {truncateWords(description, 8)}
-        </p>
-        <p className="text-secondary dark:text-primary/80 text-lg font-bold">
-          Ksh {addComma(price)}
-        </p>
+      <div className="flex flex-col space-y-2 py-5 px-5 w-full">
+        <span className="text-xs font-bold text-secondary space-x-1.5 uppercase">
+          {category}
+        </span>
+        <span className="text-sm text-black font-bold capitalize">
+          {make} {model} {category}
+        </span>
+        <span className="text-[11px] text-gray-500">{year}</span>
+        <span className="text-[11px] text-gray-500 flex items-center gap-1">
+          <GoDotFill
+            className={`${instock ? "text-green-500" : "text-red-500"}`}
+            size={15}
+          />
+          {instock ? "in stock" : "out of stock"}
+        </span>
+        <hr className="text-gray-200" />
+        <div className="flex items-center justify-between">
+          <span className="text-pink-500 text-sm font-bold">Ksh. {addComma(price)}</span>
+          <ShoppingCart className="bg-dark text-white p-1.5 w-8 h-8 rounded-sm hover:bg-primary" />
+        </div>
       </div>
     </Link>
   );

@@ -2,7 +2,7 @@ import { BsClock, BsInstagram, BsTiktok } from "react-icons/bs";
 import { CiLocationOn } from "react-icons/ci";
 import { FaFacebook, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { HiOutlineMail } from "react-icons/hi";
-import { categories } from "../data/categories.js";
+// import { categories } from "../data/categories.js";
 import { Button } from "./Button.jsx";
 
 export function Footer() {
@@ -25,9 +25,9 @@ export function Footer() {
         <div className="space-y-5">
           <h1>Categories</h1>
           <div className="text-amber-200 [&>p]:hover:text-primary cursor-pointer space-y-3 text-sm">
-            {categories.map((cat) => (
+            {/* {categories.map((cat) => (
               <p key={cat.name}>{cat.name}</p>
-            ))}
+            ))} */}
           </div>
         </div>
         <div className="space-y-5">

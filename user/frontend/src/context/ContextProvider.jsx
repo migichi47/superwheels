@@ -57,6 +57,7 @@ export function ContextProvider({ children }) {
         showSidebar,
         setShowSidebar,
         filteredProducts,
+        products,
         setTheme,
         theme,
         filteredCategory,

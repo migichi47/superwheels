@@ -1,5 +1,6 @@
 import { MoveRight } from "lucide-react";
 import { Category } from "./Category";
+import { categories } from "../../data/categories";
 
 export function Categories() {
   return (
@@ -11,21 +12,17 @@ export function Categories() {
           Start with the part you need and narrow it down to your vehicle.
         </p>
       </div>
-      <div className="flex text-secondary gap-1 font-semibold text-sm absolute right-10 top-5 cursor-pointer
-      hover:text-secondary/80 items-center">
+      <div
+        className="flex text-secondary gap-1 font-semibold text-sm absolute right-10 top-5 cursor-pointer
+      hover:text-secondary/80 items-center"
+      >
         <span>View all</span>
         <MoveRight className="w-4" />
       </div>
       <div className="flex overflow-x-scroll hide-scrollbar md:grid md:grid-cols-3 lg:grid-cols-4 gap-3 w-fit mx-auto">
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
+        {categories.map((category, i) => (
+          <Category key={i} {...category} />
+        ))}
       </div>
     </div>
   );
