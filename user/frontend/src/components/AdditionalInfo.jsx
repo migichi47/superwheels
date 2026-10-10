@@ -41,7 +41,7 @@ const AdditionalInfo = () => {
         </div>
         <div className="bg-secondary">
           <div className="max-w-300 mx-auto px-5 py-20 text-white flex flex-col sm:flex-row gap-5 sm:gap-20 sm:items-center
-          sm:justify-between">
+          sm:justify-between ">
             <div className="space-y-5">
               <h1 className="uppercase text-amber-200 text-xs font-bold">
                 Here when you need us
