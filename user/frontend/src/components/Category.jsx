@@ -1,28 +1,23 @@
 import { useContext } from "react";
 import CreateContext from "../context/ContextProvider";
 import { useNavigate } from "react-router-dom";
+import { MoveRight } from "lucide-react";
 
-export function Category({ name, query, image }) {
-  const { setFilteredCategory } = useContext(CreateContext);
-  const navigate = useNavigate();
-
+export function Category() {
   return (
-    <div
-      className="flex flex-col gap-2 group transition-colors cursor-pointer"
-      onClick={() => {
-        setFilteredCategory(query);
-        navigate("/products");
-      }}
-    >
-      <div className="overflow-hidden bg-gray-200 dark:bg-gray-300 rounded-lg p-2 group-hover:bg-gray-300 transition-colors">
-        <img
-          src={image}
-          className="w-80 group-hover:scale-115 transition-all duration-400"
-        />
+    <div className="min-w-40 sm:min-w-60 h-35 sm:h-45 overflow-hidden rounded-lg relative group">
+      <div className="bg-black/40 absolute w-full h-full z-100" />
+      <img
+        src="https://images.unsplash.com/photo-1676288176903-a68732722cce?auto=format&fit=crop&w=1400&q=85"
+        alt=""
+        className="group-hover:scale-105 transition duration-300"
+      />
+      <div className="absolute z-100 bottom-0 text-white flex justify-between px-3 pb-3 w-full text-sm items-center">
+        <span className="font-bold">Side Mirrors</span>
+        <span>
+          <MoveRight />
+        </span>
       </div>
-      <h3 className="text-sm text-center dark:text-gray-300 group-hover:text-secondary transition-colors">
-        {name}
-      </h3>
     </div>
   );
 }

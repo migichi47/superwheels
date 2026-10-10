@@ -1,14 +1,16 @@
-import { SlideShow } from "../components/SlideShow";
 import { DealOfTheDay } from "../components/DealOfTheDay";
-import { FeaturedCategories } from "../components/FeaturedCategories";
 import { RecommendedProductsGrid } from "../components/RecommendedProductsGrid";
+import Hero from "../components/Hero";
+import { Categories } from "../components/Categories";
+import FeaturedParts from "../components/FeaturedParts";
 
 export function LandingPage() {
   return (
-    <div>
-      <SlideShow />
+    <div className="space-y-20">
+      <Hero />
+      <Categories />
+      <FeaturedParts />
       <DealOfTheDay />
-      <FeaturedCategories />
       <RecommendedProductsGrid />
     </div>
   );

@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
-import { Navbar } from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Breadcrumbs from "./components/Breadcrumbs";
 
@@ -10,9 +9,8 @@ export function Layout() {
     <>
       <ScrollToTop />
       <Header />
-      <Navbar />
-      <main>
-        <Breadcrumbs />
+      <main className="pt-30 lg:pt-40">
+        {/* <Breadcrumbs /> */}
         <Outlet />
       </main>
       <Footer />
