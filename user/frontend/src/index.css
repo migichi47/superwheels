@@ -14,10 +14,8 @@ html {
 }
 
 body {
-  @apply dark:bg-dark;
   font-family: "Manrope";
 }
-
 
 @utility move-up {
   @apply transition-transform duration-300 hover:-translate-y-1;

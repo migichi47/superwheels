@@ -6,7 +6,7 @@ function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo({
-      top: 60,
+      top: 0,
     });
   }, [pathname]);
 
