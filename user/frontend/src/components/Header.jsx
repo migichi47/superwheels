@@ -19,7 +19,7 @@ export function Header() {
         {showSidebar && <PhoneNav />}
 
         <img
-          src="../../images/logo.png"
+          src="https://res.cloudinary.com/pzmxzqp0/image/upload/f_auto,q_auto/super-wheels__1_-remover-bg"
           alt=""
           className="w-30"
           onClick={() => navigate("/")}
