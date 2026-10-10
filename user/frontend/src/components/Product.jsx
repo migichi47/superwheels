@@ -18,11 +18,11 @@ export function Product({
   border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid rounded-2xl hover:-translate-y-1
     hover:shadow-sm transition-all duration-300 cursor-pointer group"
     >
-      <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center rounded-t-2xl h-40">
+      <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center rounded-t-2xl">
         <img
           src={image}
-          className="mx-auto sm:group-hover:scale-105 duration-300 sm:w-fit object-center sm:object-[center_60%]
-          sm:min-h-60"
+          className="mx-auto sm:group-hover:scale-105 duration-300 object-center sm:object-[center_60%]
+          sm:min-h-60 w-full sm:w-fit"
         />
       </div>
       <div className="flex flex-col space-y-2 py-5 px-5 w-full">
