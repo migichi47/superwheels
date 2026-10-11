@@ -2,20 +2,71 @@ import { createContext, useState, useEffect } from "react";
 import Fuse from "fuse.js";
 import api from "../axios";
 
-const CreateContext = createContext();
+const ShopContext = createContext();
 
-export function ContextProvider({ children }) {
+export function ShopContextProvider({ children }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [products, setProducts] = useState([]);
-  const [theme, setTheme] = useState("light");
   const [filteredCategory, setFilteredCategory] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [cartItemsId, setCartItemsId] = useState(
+    JSON.parse(localStorage.getItem("cart")) || {},
+  );
 
-  // handles theme
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // gets products in cart
+  const cartProducts = products
+    .filter((product) => cartItemsId[product._id] > 0)
+    .map((product) => ({
+      ...product,
+      quantity: cartItemsId[product._id],
+    }));
+
+  // calculate total cart items
+  const totalcartItemsId = cartProducts.reduce(
+    (total, product) => total + product.quantity,
+    0,
+  );
+
+  //calculates their total amount
+  const cartSubtotal = cartProducts.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0,
+  );
+
+  //adds to cart
+  const addToCart = (productId) => {
+    console.log(`${productId} added to cart`);
+    setCartItemsId((prev) => {
+      const updatedCart = {
+        ...prev,
+        [productId]: (prev[productId] || 0) + 1,
+      };
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
+
+  // removes from cart
+  const removeFromCart = (productId) => {
+    setCartItemsId((prev) => {
+      const updatedCart = { ...prev };
+      delete updatedCart[productId];
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
+
+  // updates cart quantity
+  const updateCartQuantity = (productId, quantity) => {
+    setCartItemsId((prev) => {
+      const updatedCart = { ...prev };
+      updatedCart[productId] += quantity;
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
 
   // fetches all products from backend
   useEffect(() => {
@@ -52,14 +103,18 @@ export function ContextProvider({ children }) {
     : products;
 
   return (
-    <CreateContext.Provider
+    <ShopContext.Provider
       value={{
         showSidebar,
         setShowSidebar,
         filteredProducts,
-        products,
-        setTheme,
-        theme,
+        cartItemsId,
+        cartProducts,
+        totalcartItemsId,
+        cartSubtotal,
+        addToCart,
+        removeFromCart,
+        updateCartQuantity,
         filteredCategory,
         setFilteredCategory,
         searchQuery,
@@ -67,8 +122,8 @@ export function ContextProvider({ children }) {
       }}
     >
       {children}
-    </CreateContext.Provider>
+    </ShopContext.Provider>
   );
 }
 
-export default CreateContext;
+export default ShopContext;

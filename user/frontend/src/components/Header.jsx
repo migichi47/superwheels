@@ -1,21 +1,20 @@
 import { ImCross } from "react-icons/im";
 import { useContext } from "react";
-import CreateContext from "../context/ContextProvider";
-import { useNavigate } from "react-router-dom";
+import ShopContext from "../context/ContextProvider";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiUser } from "react-icons/ci";
 
 export function Header() {
-  const { showSidebar, setShowSidebar } = useContext(CreateContext);
+  const { showSidebar, setShowSidebar, totalcartItemsId } =
+    useContext(ShopContext);
   const navigate = useNavigate();
 
   return (
     <div className="fixed z-100 w-full [&>nav]:max-w-300 [&>nav]:mx-auto bg-white">
-      <nav
-        className="top-0 flex justify-between items-center text-dark py-2 px-5 gap-5 h-24 sm:h-fit"
-      >
+      <nav className="top-0 flex justify-between items-center text-dark py-2 px-5 gap-5 h-24 sm:h-fit">
         {showSidebar && <PhoneNav />}
 
         <img
@@ -48,11 +47,14 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex items-center relative lg:gap-2 gap-5">
-          <IoCartOutline className="sm:text-2xl text-3xl" />
-          <span className="absolute -top-1 left-3.5 bg-primary rounded-full text-[10px] px-1">
-            0
-          </span>
+        <div className="flex items-center gap-10">
+          {/* cart-icon */}
+          <Link className="relative" to={"/cart"}>
+            <IoCartOutline className="sm:text-2xl text-3xl" />
+            <span className="absolute -top-3 left-4 bg-primary rounded-full text-[14px] px-1.5">
+              {totalcartItemsId ?? "0"}
+            </span>
+          </Link>
           <span className="font-semibold text-sm hidden lg:block">Cart</span>
           <GiHamburgerMenu
             className="text-3xl sm:text-xl relative lg:hidden"
@@ -80,7 +82,7 @@ export function Header() {
 }
 
 function PhoneNav() {
-  const { setShowSidebar } = useContext(CreateContext);
+  const { setShowSidebar } = useContext(ShopContext);
   const navigate = useNavigate();
 
   return (

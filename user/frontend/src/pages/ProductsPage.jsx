@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { FiFilter } from "react-icons/fi";
 // import { categories } from "../data/categories";
-import CreateContext from "../context/ContextProvider";
 import { formatName } from "../utils/formatName";
 import { LoadingProducts } from "../components/LoadingProducts";
+import ShopContext from "../context/ContextProvider";
 
 export function ProductsPage() {
   const [showMenu, setShowMenu] = useState(false);
-  const { filteredProducts, filteredCategory } = useContext(CreateContext);
+  const { filteredProducts, filteredCategory } = useContext(ShopContext);
 
   if(filteredProducts.length === 0) return <LoadingProducts />
 

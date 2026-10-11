@@ -9,10 +9,6 @@
   --color-dark: #111827;
 }
 
-html { 
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Manrope";
 }

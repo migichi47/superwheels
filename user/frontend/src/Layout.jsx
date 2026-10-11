@@ -9,7 +9,7 @@ export function Layout() {
     <>
       <ScrollToTop />
       <Header />
-      <main className="pt-30 lg:pt-40">
+      <main className="pt-40">
         {/* <Breadcrumbs /> */}
         <Outlet />
       </main>

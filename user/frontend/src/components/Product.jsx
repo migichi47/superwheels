@@ -2,8 +2,11 @@ import { addComma } from "../utils/addComma";
 import { Link } from "react-router-dom";
 import { ShoppingCart } from "lucide-react";
 import { GoDotFill } from "react-icons/go";
+import { useContext } from "react";
+import ShopContext from "../context/ContextProvider";
 
 export function Product({
+  _id: id,
   category,
   image,
   instock,
@@ -12,11 +15,13 @@ export function Product({
   price,
   year,
 }) {
+  const { addToCart } = useContext(ShopContext);
+
   return (
-    <Link
+    <div
       className="flex flex-col items-center w-full mx-auto max-w-100 h-fit gap-2 bg-white dark:bg-dark dark:text-white border
-  border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid rounded-2xl hover:-translate-y-1
-    hover:shadow-sm transition-all duration-300 cursor-pointer group"
+    border-gray-300 dark:border-1.5 dark:border-gray-600 break-inside-avoid rounded-2xl
+      hover:shadow-sm transition-all duration-300 cursor-pointer group"
     >
       <div className="max-h-80 sm:max-h-50 w-full overflow-hidden flex items-center justify-center rounded-t-2xl">
         <img
@@ -42,10 +47,23 @@ export function Product({
         </span>
         <hr className="text-gray-200" />
         <div className="flex items-center justify-between">
-          <span className="text-pink-500 text-sm font-bold">Ksh. {addComma(price)}</span>
-          <ShoppingCart className="bg-dark text-white p-1.5 w-8 h-8 rounded-sm hover:bg-primary" />
+          <span className="text-pink-500 text-sm font-bold">
+            Ksh. {addComma(price)}
+          </span>
+          <div className="flex gap-4">
+            <Link
+              className="bg-secondary px-4 rounded-sm flex items-center text-xs text-white font-semibold hover:text-gray-300"
+              to={`/products/details/${id}`}
+            >
+              view
+            </Link>
+            <ShoppingCart
+              className="bg-dark text-white p-1.5 w-8 h-8 rounded-sm hover:bg-primary"
+              onClick={() => addToCart(id)}
+            />
+          </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
