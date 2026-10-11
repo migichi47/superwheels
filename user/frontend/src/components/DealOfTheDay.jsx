@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { Button } from "./Button";
 import api from "../axios";
 import { addComma } from "../utils/addComma";
-import { capitaliseFirstLetter } from "../utils/formatName";
 import { orderOnWhatsApp } from "../utils/whatsappUrl";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export function DealOfTheDay() {
   const [deal, setDeal] = useState({});
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const { product, dealPrice, originalPrice, expiresAt } = deal;
   const [hoursLeft, setHoursLeft] = useState(0);
@@ -46,33 +47,38 @@ export function DealOfTheDay() {
 
   return (
     <div
-      className="mx-auto w-fit top-10 lg:top-20 bg-white px-10 py-10 flex flex-col
-        lg:flex-row gap-20 items-center group h-fit"
+      className="mx-auto w-fit bg-white px-10 py-10 flex flex-collg:flex-row gap-20 items-center
+      group h-fit"
     >
       {loading ? (
         <div className="h-80 w-90 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-12 h-12 border-4 border-gray-300 border-t-primary rounded-full animate-spin mx-auto"></div>
-
+            <div
+              className="w-12 h-12 border-4 border-gray-300 border-t-primary rounded-full animate-spin
+            mx-auto"
+            />
             <p className="mt-4 text-gray-600">Loading deal of the day...</p>
           </div>
         </div>
       ) : (
         <div className="flex gap-10 flex-col sm:flex-row">
           <div className="max-h-120 overflow-hidden max-w-90 lg:max-w-80 rounded-xl relative">
-            <div className="bg-primary rounded-full w-fit absolute top-3 left-3 text-sm font-bold py-7 px-2 -rotate-12">30% OFF</div>
+            <div
+              className="bg-primary rounded-full w-fit absolute top-3 left-3 text-sm font-bold py-7 px-2
+            -rotate-12"
+            >
+              30% OFF
+            </div>
             <img src={product?.image} alt="" className="w-full object-center" />
           </div>
-          <div className="lg:space-y-20 space-y-10 h-fit my-auto">
+          <div className="space-y-10 h-fit my-auto">
             <div className="space-y-5">
               <h1 className="uppercase text-primary text-[11px] font-semibold">
                 Deal of the day
               </h1>
-              <h1 className="text-2xl font-semibold space-x-1.5">
-                <span>{capitaliseFirstLetter(product?.category)}</span>
-                <span>{capitaliseFirstLetter(product?.make)}</span>
-                <span>{capitaliseFirstLetter(product?.model)}</span>
-                <span>{product?.year}</span>
+              <h1 className="text-2xl font-semibold space-x-1.5 capitalize">
+                {product?.category} {product?.make} {product?.model}{" "}
+                {product?.year}
               </h1>
               <div className="flex gap-3 items-center">
                 <h2 className="text-3xl text-primary font-semibold">
@@ -106,16 +112,9 @@ export function DealOfTheDay() {
               </div>
             </div>
             <Button
-              className="px-5 py-3 bg-primary text-black hover:text-white text-sm font-bold hover:-translate-y-0.5 transition gap-2"
-              onClick={() =>
-                orderOnWhatsApp(
-                  product?.category,
-                  product?.make,
-                  product?.model,
-                  product?.year,
-                  dealPrice,
-                )
-              }
+              className="px-5 py-3 bg-primary text-black hover:text-white text-sm font-bold hover:-translate-y-0.5
+              transition gap-2"
+              onClick={() => navigate(`/products/details/${product._id}`)}
             >
               Shop this deal <FaLongArrowAltRight className="text-sm" />
             </Button>

@@ -1,20 +1,23 @@
-import { BsWhatsapp } from "react-icons/bs";
 import { Button } from "../components/Button";
 import { MdCheckCircle } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import api from "../axios";
 import { addComma } from "../utils/addComma";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import { orderOnWhatsApp } from "../utils/whatsappUrl.js";
 import { capitaliseFirstLetter } from "../utils/formatName.js";
 import { LoadingProducts } from "../components/LoadingProducts.jsx";
 import { Phone, ShoppingCart } from "lucide-react";
+import ShopContext from "../context/ContextProvider.jsx";
 
 export function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
+  const { category, make, model, year, description, instock, price, image } =
+    product;
+  const { addToCart, deal } = useContext(ShopContext);
+  const productName = `${capitaliseFirstLetter(category)} ${capitaliseFirstLetter(make)} ${capitaliseFirstLetter(model)} ${year}`;
 
   useEffect(() => {
     async function getProduct() {
@@ -29,11 +32,6 @@ export function ProductDetails() {
     }
     getProduct();
   }, [id]);
-
-  const { category, make, model, year, description, instock, price, image } =
-    product;
-
-  const productName = `${capitaliseFirstLetter(category)} ${capitaliseFirstLetter(make)} ${capitaliseFirstLetter(model)} ${year}`;
 
   if (loading) {
     return <LoadingProducts />;
@@ -59,7 +57,7 @@ export function ProductDetails() {
           <div className="space-y-3">
             <h1 className="font-semibold text-3xl">{productName}</h1>
             <h2 className="text-xl font-semibold text-primary">
-              Ksh. {addComma(price)}
+              Ksh. {addComma(deal.product._id === id ? deal.dealPrice : price)}
             </h2>
             {instock ? (
               <span className="flex items-center gap-1 text-green-600 text-sm font-semibold">
@@ -75,7 +73,10 @@ export function ProductDetails() {
           </div>
           <div className="space-y-3 max-w-250">
             <div className="flex gap-2">
-              <Button className="flex justify-center gap-2 text-black text-xs font-semibold grow">
+              <Button
+                className="flex justify-center gap-2 text-black text-xs font-semibold grow"
+                onClick={() => addToCart(id)}
+              >
                 <ShoppingCart className="w-4" />
                 Add to Cart
               </Button>

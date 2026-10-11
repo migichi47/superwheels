@@ -12,6 +12,7 @@ export function ShopContextProvider({ children }) {
   const [cartItemsId, setCartItemsId] = useState(
     JSON.parse(localStorage.getItem("cart")) || {},
   );
+  const [deal, setDeal] = useState("");
 
   // gets products in cart
   const cartProducts = products
@@ -81,6 +82,19 @@ export function ShopContextProvider({ children }) {
     getProducts();
   }, []);
 
+  //fetches deal from backend
+  useEffect(() => {
+    async function getDealOfTheDay() {
+      try {
+        const response = await api.get("/api/products/deal-of-the-day");
+        setDeal(response.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getDealOfTheDay();
+  }, []);
+
   // fetches filtered category from backend
   useEffect(() => {
     async function getFilteredCategory() {
@@ -119,6 +133,7 @@ export function ShopContextProvider({ children }) {
         setFilteredCategory,
         searchQuery,
         setSearchQuery,
+        deal,
       }}
     >
       {children}

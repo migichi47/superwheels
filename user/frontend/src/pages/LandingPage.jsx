@@ -6,7 +6,7 @@ import AdditionalInfo from "../components/AdditionalInfo";
 
 export function LandingPage() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-10">
       <Hero />
       <Categories />
       <FeaturedParts />
